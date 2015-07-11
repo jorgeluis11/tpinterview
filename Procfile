@@ -1,0 +1,1 @@
+web: gunicorn tpinterview.wsgi --log-file -
