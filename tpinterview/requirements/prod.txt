@@ -1,0 +1,6 @@
+-r base.txt
+
+psycopg2==2.6
+django-toolbelt==0.0.1
+dj-database-url==0.3.0
+django-postgrespool==0.3.0
