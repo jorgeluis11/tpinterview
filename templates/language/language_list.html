@@ -2,8 +2,9 @@
 
 {% block content %}
 	<div class="row">
-		{% for language in language %}
-			<div class="col-xs-12 col-sm-3 col-sm-offset-1">{{ language.language }}</div>
+		{% for language in languages %}
+		<a href="{% url 'language-detail' language.slug %}">
+			<div class="col-xs-12 col-sm-3 col-sm-offset-1">{{ language.name }}</div>
 		{% endfor %}
 	</div>
 {% endblock %}

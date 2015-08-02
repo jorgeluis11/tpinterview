@@ -1,3 +1,6 @@
+.DS_Store
+interview_db
+
 venv
 *.pyc
 staticfiles

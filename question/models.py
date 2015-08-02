@@ -6,19 +6,19 @@ from autoslug import AutoSlugField
 
 # Create your models here.
 class Language(TimeStampedModel):
-    language = models.CharField(max_length=55, unique=True, blank=False)
-    slug = AutoSlugField(populate_from='language', unique=True, max_length=50)
+    name = models.CharField(max_length=55, unique=True, blank=False)
+    slug = AutoSlugField(populate_from='name', unique=True, max_length=50)
     status = models.BooleanField(default=True)
 
     def __unicode__(self):
-        return self.language
+        return self.name
 
 
 # Create your models here.
 class Exam(TimeStampedModel):
     language = models.ForeignKey(Language)
-    exam = models.CharField(max_length=55, unique=True, blank=False)
-    slug = AutoSlugField(populate_from='exam', unique=True, max_length=50)
+    name = models.CharField(max_length=55, unique=True, blank=False)
+    slug = AutoSlugField(populate_from='name', unique=True, max_length=50)
     status = models.BooleanField(default=True)
 
     def __unicode__(self):

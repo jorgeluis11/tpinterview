@@ -8,20 +8,20 @@ from .models import Answer
 
 
 class LanguageAdmin(admin.ModelAdmin):
-    fields = ('language', 'status')
-    list_display = ('id', 'language', 'status')
-    list_display_links = ['id', 'language']
+    fields = ('name', 'status')
+    list_display = ('id', 'name', 'status')
+    list_display_links = ['id', 'name']
     list_filter = ['status']
-    search_fields = ['id', 'language']
+    search_fields = ['id', 'name']
 
 
 class ExamAdmin(admin.ModelAdmin):
-    fields = ('language', 'exam', 'status')
-    list_display = ('id', 'language', 'exam',
+    fields = ('language', 'name', 'status')
+    list_display = ('id', 'language', 'name',
     				'status')
-    list_display_links = ['id', 'exam', 'status']
-    list_filter = ['status', 'language']
-    search_fields = ['id', 'exam']
+    list_display_links = ['id', 'name', 'status']
+    list_filter = ['status', 'name']
+    search_fields = ['id', 'name']
 
 
 class QuestionAdmin(admin.ModelAdmin):

@@ -5,6 +5,8 @@ from .views import LanguageListView
 from .views import LanguageDetailView
 
 urlpatterns = patterns('',
-    url(r'^language/$', LanguageListView.as_view(), name='wines-list'),
-    url(r'^language/(?P<language_slug>[\w-]+)/$', LanguageDetailView.as_view()),
+    url(r'^language/$', LanguageListView.as_view(),
+    	name='language-list'),
+    url(r'^language/(?P<language_slug>[\w-]+)/$', LanguageDetailView.as_view(),
+    	name="language-detail"),
 )
