@@ -1,10 +1,13 @@
 from django.db import models
 
 from core.models import TimeStampedModel
+from autoslug import AutoSlugField
+
 
 # Create your models here.
 class Language(TimeStampedModel):
     language = models.CharField(max_length=55, unique=True, blank=False)
+    slug = AutoSlugField(populate_from='language', unique=True, max_length=50)
     status = models.BooleanField(default=True)
 
     def __unicode__(self):
@@ -13,8 +16,9 @@ class Language(TimeStampedModel):
 
 # Create your models here.
 class Exam(TimeStampedModel):
-    name = models.CharField(max_length=55, unique=True, blank=False)
     language = models.ForeignKey(Language)
+    exam = models.CharField(max_length=55, unique=True, blank=False)
+    slug = AutoSlugField(populate_from='exam', unique=True, max_length=50)
     status = models.BooleanField(default=True)
 
     def __unicode__(self):
@@ -23,8 +27,8 @@ class Exam(TimeStampedModel):
 
 # Create your models here.
 class Question(TimeStampedModel):
-    question = models.CharField(max_length=255, blank=False)
     exam = models.ForeignKey(Exam)
+    question = models.CharField(max_length=255, blank=False)
     order = models.IntegerField()
 
     def __unicode__(self):
@@ -33,18 +37,22 @@ class Question(TimeStampedModel):
 
 # Create your models here.
 class Candidate(TimeStampedModel):
+    exam = models.ForeignKey(Exam)
     first_name = models.CharField(max_length=55, blank=False)
     last_name = models.CharField(max_length=55, blank=False)
 
     def __unicode__(self):
-        return self.question
+        return self.fist_name
+
+    def fullname(self):
+        return self.first_name + " " + self.last_name
 
 
 # Create your models here.
 class Answer(TimeStampedModel):
-    answer = models.CharField(max_length=255, blank=False)
     question = models.ForeignKey(Question)
     candidate = models.ForeignKey(Candidate)
+    answer = models.CharField(max_length=255, blank=False)
     order = models.IntegerField()
 
     def __unicode__(self):
