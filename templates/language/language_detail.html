@@ -3,6 +3,8 @@
 {% block content %}
 	<div class="row">
 		<div class="col-xs-12">{{ language.name }}</div>
-		<a href="">{{ language.exam_set.all.0.name }}</a>
+		{% for exam in language.exam_set.all %}
+			<p><a href="">{{ exam.name }}</a></p>
+		{% endfor %}
 	</div>
 {% endblock %}
