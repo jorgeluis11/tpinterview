@@ -1,0 +1,55 @@
+#detail-box{
+	margin: 35px 0px;
+}
+
+.detail-box #detail-description{
+	line-height: 1.5em;
+}
+
+.accompaniment-box{
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+
+.accompaniment-wrapper{
+	background-color: #f2efe3 !important;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    box-shadow: 8px 8px 7px #ddd;
+    height: 260px;
+    padding: 10px;
+    z-index: 1;
+}
+
+.accompaniment-wrapper:after{
+	content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url('../img/grapes2.png') left bottom no-repeat;
+    width: 93%;
+    height: 100%;
+    opacity: 0.02;
+    z-index: 1;
+    z-index: 0;
+}
+
+hr{
+	background-color: transparent;
+    display: block;
+    height: 15px;
+    border-width: 0;
+    border-top: 1px dotted #ccc;
+    line-height: 20px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+blockquote{
+	padding: 10px 20px;
+    margin: 0 0 20px;
+    font-size: 17.5px;
+    border-left: 5px solid #ddd;
+    color: #555;
+}

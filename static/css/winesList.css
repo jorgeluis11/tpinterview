@@ -1,0 +1,112 @@
+.filter-box-header{
+	background-color: #E8E8E4;
+	margin-top: 20px;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	font-size: 16px;
+	font-weight: bold;
+	color: #444444;
+	text-align: center;
+	box-shadow: 1px 5px 3px #aaa;
+}
+
+.filter-box{
+	background-color: #E8E8E4;
+	border-radius: 6px;
+	border-top-left-radius: 0px;
+	border-bottom-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+	padding: 15px;
+	margin-bottom: 30px;
+	box-shadow: 1px 5px 3px #aaa}
+
+.filter-box > p {
+	color: #444444;
+	margin: 5px 0px 10px 0px;
+}
+
+.filter-box > p > a > span{
+	background-color: #D8D7D4;
+	padding: 5px;
+	border-radius: 6px;
+	cursor: pointer;
+	color: #222222;
+	margin-left: 8px;
+}
+
+.filter-box > p > a > span:hover{
+	background-color: #ccc;
+}
+
+.wines-box{
+	margin: 55px 0px;
+}
+
+.wines.box img{
+	width: 100px;
+    height: 230px;
+}
+
+.divider{
+	border-bottom: 1px dotted lightgray;
+}
+
+.bracket{
+	-ms-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    color: #777;
+    font-size: 100px;
+    height: 65px;
+    text-align: left;
+    width: 2px;
+}
+
+#amount{
+	color: #666;
+    font-weight: bold;
+    background-color: #E8E8E4;
+    border: none;
+    margin-bottom: 6px;
+}
+
+#filter-all{
+    margin-bottom: 0px;
+    margin-top: 22px;
+}
+
+.wines-box h3, .wines-box h4{
+	font-family: 'Goudy', 'Georgia', serif;
+	margin-top:0;
+}
+
+.wines-box h3 a{
+	color: #444;
+}
+
+.list-navbar{
+	padding-left: 0px;
+	cursor: pointer;
+}
+
+.list-content{
+	font-size: 12px;
+    line-height: 1.6em;
+    color: #444;
+    margin-top: 5px;
+    margin-left: 4%;
+    height: 111px;
+    overflow-y: hidden;
+}
+
+.list-information-content .list-header{
+	font-weight: bold;
+}
+
+.hide-description{
+	display: none;
+}
+
+.btn-detail{
+	margin-top: 5px;
+}
