@@ -50,8 +50,7 @@ body{
 }
 
 #header-left{
-	float:left;
-	font-family: "Edwardian Script", helvetica, arial;
+	text-align: center;
 }
 
 #header-left>img{
@@ -61,13 +60,9 @@ body{
     float: left;
 }
 
-#header-left> a {
+#header-left> span {
 	font-size: 48px;
     color: #FFFFFF;
-    line-height: 57px;
-    float: left;
-    margin-top: 7px;
-    margin-left: 4px;
 }
 
 #header-left> a:hover {
