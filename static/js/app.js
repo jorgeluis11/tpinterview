@@ -1,1 +1,1 @@
-angular.module('starter', []);
+angular.module('starter', []) ;

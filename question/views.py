@@ -8,6 +8,7 @@ from django.views.generic import TemplateView
 
 from django.core import serializers
 import simplejson
+import json
 
 from .models import Language
 
@@ -36,7 +37,9 @@ class index(TemplateView):
     template_name = 'index.html'
 
 def languages(request):
-    languages = serializers.serialize('json', Language.objects.all())
+    # languages = serializers.serialize('json', Language.objects.all())
     # data = {'languages': languages}
-    return HttpResponse(simplejson.dumps(languages),
+    # dic = json.loads(languages)['fields']
+
+    return HttpResponse(simplejson.dumps(Language.objects.all()),
                         content_type='application/json')

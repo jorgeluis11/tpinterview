@@ -18,7 +18,12 @@
     <meta property="og:description" content="Seleccion de vinos a la carta."/>
     <meta property="og:type" content="article"/>
     <meta property="og:image" content="{% static "img/notaso-flyer.png" %}"/>
-
+    <!--<script type="text/javascript" src="{% static "js/jquery-2.1.0.js" %}"></script>
+        -->
+        <!--<script type="text/javascript" src="{% static "js/angular.min.js" %}"></script>-->
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+        <script type="text/javascript" src="{% static "js/app.js" %}"></script>
+        <script type="text/javascript" src="{% static "js/controller/controller.js" %}"></script>
     {% block extra_head %}
         <!-- <meta property="og:title" content="."/>
         <meta property="og:url" content="https://.com/"/> -->
@@ -39,7 +44,7 @@
         </div>
     {% endblock %}
 
-    <div id="background-image" ng-app="starter">
+    <div id="background-image" >
         <div class="container">
             {% block content %}{% endblock %}
         </div>
@@ -56,10 +61,7 @@
     {% endblock %}
 
     {% block js %}
-        <script type="text/javascript" src="{% static "js/jquery-2.1.0.js" %}"></script>
-        <script type="text/javascript" src="{% static "js/angular.min.js" %}"></script>
-        <script type="text/javascript" src="{% static "js/app.js" %}"></script>
-        <script type="text/javascript" src="{% static "js/controller/controller.js" %}"></script>
+       
 
     {% endblock %}
     {% block extra_bottom %}{% endblock %}
