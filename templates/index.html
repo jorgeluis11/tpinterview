@@ -1,24 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div ng-app="starter">
-	<div ng-controller="testCtrl">
-		exams:{{exams}}
-
-		<div class="row">
-			<!-- <div class="col-xs-12">{{ language.name }}</div>
-			{% for exam in language.exam_set.all %}
-				<p><a href="">{{ exam.name }}</a></p>
-			{% endfor %}
-			-->
-		<div ng-repeat="language in languages" class="col-sm-4">
-			<h1 ng-bind="language.name"></h1>
-			<img ng-src="language.name" alt="">
-		</div>
-
-		</div>
+	<div ng-app="starter">
+		<div ng-view></div>
 	</div>
-</div>
-
-
 {% endblock %}

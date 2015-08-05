@@ -1,5 +1,7 @@
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render
+from django.shortcuts import render_to_response
+
 from django.shortcuts import HttpResponse
 
 from django.views.generic import DetailView
@@ -41,13 +43,16 @@ import json
 class index(TemplateView):
     template_name = 'index.html'
 
-def languages(request):
+# def languages(request):
     # languages = serializers.serialize('json', Language.objects.all())
     # data = {'languages': languages}
     # dic = json.loads(languages)['fields']
 
-    return HttpResponse(simplejson.dumps(Language.objects.all()),
-                        content_type='application/json')
+    # return HttpResponse(simplejson.dumps(Language.objects.all()),
+                        # content_type='application/json')
+
+def languages(request):
+    return render_to_response("language/language_list.html",{})
 
 class LanguageList(generics.ListAPIView):
     """

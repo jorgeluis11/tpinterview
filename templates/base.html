@@ -13,6 +13,7 @@
     <link rel="shortcut icon" type="image/png" href="{%static "img/favicon.ico"%}"/>
     <link rel="stylesheet" type="text/css" href="{% static "css/style.css"%}">
     <link rel="stylesheet" href="{% static "css/jquery-ui.min.css" %}">
+        <link rel="stylesheet" href="{% static "css/animations.css" %}">
     <link rel="canonical" href="https://wines.com" />
     <meta property="og:site_name" content="Wines"/>
     <meta property="og:description" content="Seleccion de vinos a la carta."/>
@@ -22,6 +23,8 @@
         -->
         <!--<script type="text/javascript" src="{% static "js/angular.min.js" %}"></script>-->
         <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-route.js"></script>
+
         <script type="text/javascript" src="{% static "js/app.js" %}"></script>
         <script type="text/javascript" src="{% static "js/controller/controller.js" %}"></script>
     {% block extra_head %}
@@ -31,17 +34,17 @@
 </head>
 <body>
     {% block header %}
-        <div id="header">
+        <!--<div id="header">
             <div id="header-left">
-                <!--<a id="logo-text" href=""><span>Technology Partners Interview</span></a>-->
+                <a id="logo-text" href=""><span>Technology Partners Interview</span></a>
                 <span>Technology Partners Interview</span>
             </div>
-           <!-- <div id="header-right">
+            <div id="header-right">
                 <a href=""><h3>Vinos</h3></a>
                 <a href=""><h3>Lenguajes</h3></a>
                 <a href=""><h3>Examenes</h3></a>
-            </div>-->
-        </div>
+            </div>
+        </div>-->
     {% endblock %}
 
     <div id="background-image" >
@@ -53,11 +56,12 @@
     {% block extra_body %}{% endblock %}
     
     {% block footer %}
-        <div id="footer">
+       <!-- <div id="footer">
             <p id="copyright">
                 Copyright © {% now "Y" %}. All rights reserved.
             </p>
         </div>
+        -->
     {% endblock %}
 
     {% block js %}

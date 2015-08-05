@@ -1,6 +1,6 @@
 angular.module("starter")
-.controller('testCtrl', ['$scope', '$http', function ($scope, $http) {
-	
+.controller('languageCtrl', ['$scope', '$http', function ($scope, $http) {
+	console.log("otra");
 	$scope.languages = [];
 	$scope.exams = "sdfdsfds";
 	$scope.test = "sdf";
@@ -10,10 +10,15 @@ angular.module("starter")
 	}
 
 
-	$http.get("/languages").then(function(data){
+	$http.get("/api/languages").then(function(data){
 		$scope.languages = data.data;
 		console.log($scope.languages);
 		$scope.test = "testing worksss";
 	});
 
+
+
+}])
+.controller('examCtrl', ['$scope', '$routeParams', function ($scope, $routeParams) {
+	console.log($routeParams);
 }]);
