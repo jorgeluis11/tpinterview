@@ -14,7 +14,7 @@ angular.module('starter', ['ngRoute'])
     // }
   })
   .when('/language/:languageId', {
-    templateUrl: '/language/language_list.html',
+    templateUrl: '/language/language_detail.html',
     controller: 'examCtrl',
   })
   .otherwise({ redirectTo: '/language' });
