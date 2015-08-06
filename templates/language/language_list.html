@@ -1,18 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-		<br>
-				<div class="row">
-					<!-- <div class="col-xs-12">{{ language.name }}</div>
-					{% for exam in language.exam_set.all %}
-						<p><a href="">{{ exam.name }}</a></p>
-					{% endfor %}
-					-->
-				<a ng-href="#/language/{[{language.id}]}" ng-repeat="language in languages" class="col-sm-3 language animated zoomInDown">
-					<img ng-src="../static/img/{[{language.name}]}.png" alt="" />
-					<h3>{[{language.name}]}</h3>
-				</a>
-
-				</div>
-			</div>
+	<br>
+		<div class="row">	
+			<a ng-href="#/language/{[{language.slug}]}" ng-repeat="language in languages" class="col-sm-3 language animated zoomInDown">
+				<img ng-src="../static/img/{[{language.name}]}.png" alt="" />
+				<h3>{[{language.name}]}</h3>
+			</a>
+		</div>
+	</div>
 {% endblock %}

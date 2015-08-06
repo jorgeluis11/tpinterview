@@ -13,7 +13,7 @@ angular.module('starter', ['ngRoute'])
     //   }
     // }
   })
-  .when('/language/:languageId', {
+  .when('/language/:languageSlug', {
     templateUrl: '/language/language_detail.html',
     controller: 'examCtrl',
   })

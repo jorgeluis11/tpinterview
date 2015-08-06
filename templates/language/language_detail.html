@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+	
 	<div class="row">
 		<div class="col-xs-12">{{ language.name }}</div>
 		{% for exam in language.exam_set.all %}
