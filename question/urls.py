@@ -9,6 +9,7 @@ from .views import languagesDetail
 from .views import LanguageListAPI
 from .views import LanguageRetrieveAPI
 from .views import ExamRetrieveAPI
+from .views import ExamListAPI
 
 
 urlpatterns = patterns('',
@@ -25,5 +26,8 @@ urlpatterns = patterns('',
         name='rest-language-detail'),
     url(r'^api/languages/(?P<language_slug>[\w-]+)/(?P<slug>[\w-]+)$',
         ExamRetrieveAPI.as_view(),
-        name='rest-language-detail'),
+        name='rest-exam-detail'),
+    url(r'^api/exams/',
+        ExamListAPI.as_view(),
+        name='rest-exam-list'),
 )

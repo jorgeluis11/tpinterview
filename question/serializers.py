@@ -42,6 +42,14 @@ class LanguageRetrieveSerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'slug', 'exam')
 
 
+class ExamListSerializer(serializers.ModelSerializer):
+    language = LanguageListSerializer()
+
+    class Meta:
+        model = Exam
+        fields = ('id', 'name', 'slug', 'language')
+
+
 class ExamRetrieveSerializer(serializers.ModelSerializer):
     language = LanguageListSerializer()
     questions = serializers.SerializerMethodField('get_question_list')
