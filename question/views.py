@@ -24,6 +24,8 @@ class index(TemplateView):
 def languages(request):
     return render_to_response("language/language_list.html", {})
 
+def languagesDetail(request):
+    return render_to_response("language/language_detail.html", {})
 
 class LanguageListAPI(generics.ListAPIView):
     queryset = Language.objects.filter(status=True)

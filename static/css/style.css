@@ -321,3 +321,7 @@ hr{
     margin: 0 auto;
     display: block;
 }
+
+#language-title{
+    text-align: center;
+}

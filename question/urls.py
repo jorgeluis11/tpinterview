@@ -5,6 +5,7 @@ from django.conf.urls import include
 # from .views import LanguageDetailView
 from .views import index
 from .views import languages
+from .views import languagesDetail
 from .views import LanguageListAPI
 from .views import LanguageRetrieveAPI
 from .views import ExamRetrieveAPI
@@ -14,7 +15,7 @@ urlpatterns = patterns('',
     url(r'^$', index.as_view(), name='language-list'),
     url(r'^language/language_list.html/$', languages,
         name='language-list'),
-    url(r'^language/language_detail.html/$', languages,
+    url(r'^language/language_detail.html/$', languagesDetail,
         name='language-detail'),
 
     url(r'^api/languages/$', LanguageListAPI.as_view(),
