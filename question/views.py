@@ -25,6 +25,9 @@ def languages(request):
 def languagesDetail(request):
     return render_to_response("language/language_detail.html", {})
 
+def languagesQuestionList(request):
+    return render_to_response("language/language_question.html", {})
+
 class LanguageListAPI(generics.ListAPIView):
     queryset = Language.objects.filter(status=True)
     serializer_class = LanguageListSerializer

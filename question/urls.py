@@ -8,6 +8,7 @@ from .views import languages
 from .views import languagesDetail
 from .views import LanguageListAPI
 from .views import LanguageRetrieveAPI
+from .views import languagesQuestionList
 
 
 urlpatterns = patterns('',
@@ -16,7 +17,8 @@ urlpatterns = patterns('',
         name='language-list'),
     url(r'^language/language_detail.html/$', languagesDetail,
         name='language-detail'),
-
+    url(r'^language/language_question.html/$', languagesQuestionList,
+        name='language-detail'),
     url(r'^api/languages/$', LanguageListAPI.as_view(),
         name='rest-language-list'),
     url(r'^api/languages/(?P<slug>[\w-]+)/$',
