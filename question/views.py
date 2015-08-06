@@ -11,8 +11,10 @@ from rest_framework import filters
 from rest_framework import generics
 
 from .models import Language
+from .models import Exam
 from .serializers import LanguageListSerializer
 from .serializers import LanguageRetrieveSerializer
+from .serializers import ExamRetrieveSerializer
 
 
 class index(TemplateView):
@@ -33,7 +35,8 @@ class LanguageRetrieveAPI(generics.RetrieveAPIView):
     queryset = Language.objects.filter(status=True)
     lookup_field = 'slug'
 
-    # def get_object(self):
-    #     language = get_object_or_404(queryset,
-    #                                  slug=self.kwargs['languages_slug'])
-    #     return language
+
+class ExamRetrieveAPI(generics.RetrieveAPIView):
+    serializer_class = ExamRetrieveSerializer
+    queryset = Exam.objects.filter(status=True)
+    lookup_field = 'slug'

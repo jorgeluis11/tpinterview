@@ -2,10 +2,10 @@ from django.core.paginator import Paginator
 
 from .models import Language
 from .models import Exam
+from .models import Question
 
 from rest_framework import pagination
 from rest_framework import serializers
-from versatileimagefield.serializers import VersatileImageFieldSerializer
 
 
 class ExamListSerializer(serializers.ModelSerializer):
@@ -41,3 +41,18 @@ class LanguageRetrieveSerializer(serializers.ModelSerializer):
     class Meta:
         model = Language
         fields = ('id', 'name', 'slug', 'exam')
+
+
+class ExamRetrieveSerializer(serializers.ModelSerializer):
+    # language = LanguageListSerializer()
+
+    questions = serializers.SerializerMethodField('get_question_list')
+
+    def get_question_list(self, exam):
+        queryset = Question.objects.filter(exam=exam)
+        serializer = ExamListSerializer(instance=queryset, many=True)
+        return serializer.data
+
+    class Meta:
+        model = Exam
+        fields = ('id', 'name', 'slug', 'questions')
