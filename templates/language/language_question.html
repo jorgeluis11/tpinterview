@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<div class="row">	
+		<div ng-repeat="question in questions.questions">
+			<h1 class="question-title" >
+				{[{question.question}]}
+			</h1>
+			<div ui-ace="{
+			  useWrapMode : true,
+			  showGutter: true,
+			  theme:'twilight',
+			  mode: 'markdown'
+			}"></div>
+			<br>
+			<hr>
+		</div>
+		<button ng-show="submitButton" class="btn btn-success btn-submit">Submit</button>
+		<br>
+		<br>
+	</div>
+{% endblock %}

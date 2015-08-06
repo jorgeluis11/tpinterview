@@ -1,4 +1,4 @@
-angular.module('starter', ['ngRoute'])
+angular.module('starter', ['ngRoute', 'ui.ace'])
 .config(function($routeProvider, $interpolateProvider) {
   $routeProvider
    .when('/language', {
@@ -13,10 +13,16 @@ angular.module('starter', ['ngRoute'])
     //   }
     // }
   })
+   
   .when('/language/:languageSlug', {
     templateUrl: '/language/language_detail.html',
     controller: 'examCtrl',
   })
+  .when('/language/:languageSlug/:examSlug', {
+    templateUrl: '/language/language_question.html',
+    controller: 'questionCtrl',
+  })
+  
   .otherwise({ redirectTo: '/language' });
 
   // configure html5 to get links working on jsfiddle
