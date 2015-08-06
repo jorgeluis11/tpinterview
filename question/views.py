@@ -54,3 +54,8 @@ class ExamRetrieveAPI(generics.RetrieveAPIView):
 class ExamListAPI(generics.ListAPIView):
     serializer_class = ExamListSerializer
     queryset = Exam.objects.filter(status=True)
+
+
+class ExamInsertAPI(generics.CreateAPIView):
+    serializer_class = ExamListSerializer
+    queryset = Exam.objects.filter(status=True)

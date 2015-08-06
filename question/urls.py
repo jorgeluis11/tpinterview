@@ -11,6 +11,7 @@ from .views import LanguageRetrieveAPI
 from .views import languagesQuestionList
 from .views import ExamRetrieveAPI
 from .views import ExamListAPI
+from .views import ExamInsertAPI
 
 
 urlpatterns = patterns('',
@@ -34,4 +35,7 @@ urlpatterns = patterns('',
     url(r'^api/exams/',
         ExamListAPI.as_view(),
         name='rest-exam-list'),
+    url(r'^api/exams/post/',
+        ExamInsertAPI.as_view(),
+        name='rest-exam-insert'),
 )
