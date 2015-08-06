@@ -7,5 +7,5 @@ from rest_framework.reverse import reverse
 class APIRoot(APIView):
     def get(self, request):
         return Response({
-            'questions': reverse('motels-list', request=request),
+            'questions': reverse('api-language-list', request=request),
         })

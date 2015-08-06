@@ -9,5 +9,4 @@ from .views import APIRoot
 
 urlpatterns = patterns('',
     url(r'^api/$', APIRoot.as_view()),
-    url(r'^docs/', include('rest_framework_swagger.urls')),
     )
