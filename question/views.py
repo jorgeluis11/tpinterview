@@ -15,6 +15,7 @@ from .models import Exam
 from .serializers import LanguageListSerializer
 from .serializers import LanguageRetrieveSerializer
 from .serializers import ExamRetrieveSerializer
+from .serializers import ExamListSerializer
 
 
 class index(TemplateView):
@@ -24,11 +25,14 @@ class index(TemplateView):
 def languages(request):
     return render_to_response("language/language_list.html", {})
 
+
 def languagesDetail(request):
     return render_to_response("language/language_detail.html", {})
 
+
 def languagesQuestionList(request):
     return render_to_response("language/language_question.html", {})
+
 
 class LanguageListAPI(generics.ListAPIView):
     queryset = Language.objects.filter(status=True)
@@ -45,3 +49,13 @@ class ExamRetrieveAPI(generics.RetrieveAPIView):
     serializer_class = ExamRetrieveSerializer
     queryset = Exam.objects.filter(status=True)
     lookup_field = 'slug'
+
+
+class ExamListAPI(generics.ListAPIView):
+    serializer_class = ExamListSerializer
+    queryset = Exam.objects.filter(status=True)
+
+
+class ExamInsertAPI(generics.CreateAPIView):
+    serializer_class = ExamListSerializer
+    queryset = Exam.objects.filter(status=True)

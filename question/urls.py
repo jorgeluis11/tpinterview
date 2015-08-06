@@ -10,6 +10,8 @@ from .views import LanguageListAPI
 from .views import LanguageRetrieveAPI
 from .views import languagesQuestionList
 from .views import ExamRetrieveAPI
+from .views import ExamListAPI
+from .views import ExamInsertAPI
 
 
 urlpatterns = patterns('',
@@ -19,7 +21,9 @@ urlpatterns = patterns('',
     url(r'^language/language_detail.html/$', languagesDetail,
         name='language-detail'),
     url(r'^language/language_question.html/$', languagesQuestionList,
-        name='language-detail'),
+        name='language-exam-detail'),
+
+    #API
     url(r'^api/languages/$', LanguageListAPI.as_view(),
         name='rest-language-list'),
     url(r'^api/languages/(?P<slug>[\w-]+)/$',
@@ -27,5 +31,11 @@ urlpatterns = patterns('',
         name='rest-language-detail'),
     url(r'^api/languages/(?P<language_slug>[\w-]+)/(?P<slug>[\w-]+)$',
         ExamRetrieveAPI.as_view(),
-        name='rest-language-detail'),
+        name='rest-exam-detail'),
+    url(r'^api/exams/',
+        ExamListAPI.as_view(),
+        name='rest-exam-list'),
+    url(r'^api/exams/post/',
+        ExamInsertAPI.as_view(),
+        name='rest-exam-insert'),
 )
