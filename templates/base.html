@@ -7,12 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>{% block title %}Wines Catalog{% endblock %}</title>
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-    <link rel="stylesheet" href="{% static "css/reset.css"%}">
     <link rel="stylesheet" href="{% static "css/bootstrap.min.css"%}">
     <link rel="shortcut icon" type="image/png" href="{%static "img/favicon.ico"%}"/>
     <link rel="stylesheet" type="text/css" href="{% static "css/style.css"%}">
-    <link rel="stylesheet" href="{% static "css/jquery-ui.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}">
         <link rel="stylesheet" href="{% static "css/animations.css" %}">
     <link rel="canonical" href="https://wines.com" />
     <meta property="og:site_name" content="Wines"/>
@@ -26,6 +24,7 @@
     <script type="text/javascript" src="{% static "js/controller/controller.js" %}"></script>
     <script src="{% static 'js/vendor/ace/ace.js' %}"></script>
     <script src="{% static 'js/vendor/ace/ui-ace.min.js' %}"></script>
+    <script src="{% static 'js/vendor/jquery-2.1.0.js' %}"></script>
 
     {% block extra_head %}
         <!-- <meta property="og:title" content="."/>

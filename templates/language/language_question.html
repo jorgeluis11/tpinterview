@@ -2,7 +2,17 @@
 
 {% block content %}
 	<div class="row">	
-		<div ng-repeat="question in questions.questions">
+		<div>
+			<div class="form-group write-name-group">
+				<div ng-hide="nameInserted">
+				    <h1> Escriba Su Nombre y Presione <u>Enter</u></h1>
+				    <br>
+				    <h1><i class="fa fa-hand-o-down animated-hand bounce"></i></h1>
+			    </div>
+			    <input ng-enter class="form-control" id="inputdefault" type="text">
+		  	</div>
+		</div>
+		<div ng-show="nameInserted" ng-repeat="question in questions.questions">
 			<h1 class="question-title" >
 				{[{question.question}]}
 			</h1>
@@ -10,12 +20,12 @@
 			  useWrapMode : true,
 			  showGutter: true,
 			  theme:'twilight',
-			  mode: 'java'
+			  mode: 'python'
 			}"></div>
 			<br>
 			<hr>
 		</div>
-		<button ng-show="submitButton" class="btn btn-success btn-submit">Submit</button>
+		<button  ng-show="submitButton && nameInserted" class="btn btn-success btn-submit">Submit</button>
 		<br>
 		<br>
 	</div>

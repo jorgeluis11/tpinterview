@@ -19,6 +19,20 @@ Copyright (c) 2015 Daniel Eden
   animation-iteration-count: infinite;
 }
 
+.animated-hand {
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  animation-delay: 3s;
+
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.animated-hand.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
 .animated.hinge {
   -webkit-animation-duration: 2s;
   animation-duration: 2s;
