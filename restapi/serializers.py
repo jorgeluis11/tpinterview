@@ -1,8 +1,8 @@
 from django.core.paginator import Paginator
 
-from .models import Language
-from .models import Exam
-from .models import Question
+from question.models import Language
+from question.models import Exam
+from question.models import Question
 
 from rest_framework import pagination
 from rest_framework import serializers
@@ -51,6 +51,20 @@ class ExamListSerializer(serializers.ModelSerializer):
 
 
 class ExamRetrieveSerializer(serializers.ModelSerializer):
+    language = LanguageListSerializer()
+    questions = serializers.SerializerMethodField('get_question_list')
+
+    def get_question_list(self, exam):
+        queryset = Question.objects.filter(exam=exam)
+        serializer = QuestionListSerializer(instance=queryset, many=True)
+        return serializer.data
+
+    class Meta:
+        model = Exam
+        fields = ('id', 'name', 'slug', 'language', 'questions')
+
+
+class ExamInsertSerializer(serializers.ModelSerializer):
     language = LanguageListSerializer()
     questions = serializers.SerializerMethodField('get_question_list')
 
