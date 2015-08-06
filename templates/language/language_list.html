@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-	<br>
+	<h1 id="language-title">Languages</h1>
 		<div class="row">	
 			<a ng-href="#/language/{[{language.slug}]}" ng-repeat="language in languages" class="col-sm-3 language animated zoomInDown">
 				<img ng-src="../static/img/{[{language.name}]}.png" alt="" />
