@@ -15,15 +15,14 @@ class ExamListSerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'slug')
 
 
-class LanguageListSerializer(serializers.ModelSerializer):
-    # images = MotelImagesSerializer(many=True, read_only=True)
-    # amenities = AmenitiesListSerializer(many=True, read_only=True)
-    # town = TownListSerializer()
+class QuestionListSerializer(serializers.ModelSerializer):
 
-    # def get_motel_town(self, town):
-    #     queryset = Language.objects.filter(status=True, town=town)
-    #     serializer = TownListSerializer(instance=queryset, many=True)
-    #     return serializer.data
+    class Meta:
+        model = Question
+        fields = ('id', 'question', 'order')
+
+
+class LanguageListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Language
@@ -44,15 +43,14 @@ class LanguageRetrieveSerializer(serializers.ModelSerializer):
 
 
 class ExamRetrieveSerializer(serializers.ModelSerializer):
-    # language = LanguageListSerializer()
-
+    language = LanguageListSerializer()
     questions = serializers.SerializerMethodField('get_question_list')
 
     def get_question_list(self, exam):
         queryset = Question.objects.filter(exam=exam)
-        serializer = ExamListSerializer(instance=queryset, many=True)
+        serializer = QuestionListSerializer(instance=queryset, many=True)
         return serializer.data
 
     class Meta:
         model = Exam
-        fields = ('id', 'name', 'slug', 'questions')
+        fields = ('id', 'name', 'slug', 'language', 'questions')
