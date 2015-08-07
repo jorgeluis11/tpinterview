@@ -18,7 +18,7 @@
 				</h1>
 				<hr>
 			</div>
-		<h1 class="language-title-exam">
+		<h1 ng-show="nameInserted" class="language-title-exam">
 			{[{questions.language.name}]} Exam
 		</h1>
 		<div ng-show="nameInserted" ng-repeat="question in questions.questions">

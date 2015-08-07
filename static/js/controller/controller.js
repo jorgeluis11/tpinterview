@@ -22,7 +22,7 @@ angular.module("starter")
 	$scope.questions = [];
 	$scope.submitButton = false;
 
-	$scope.nameInserted = true;
+	$scope.nameInserted = false;
 	$scope.name = "";
 
 	$http.get("/api/languages/"+$routeParams.languageSlug+"/"+$routeParams.examSlug).then(function(data){

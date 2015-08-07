@@ -4,7 +4,9 @@
 	<h1 id="language-title">{[{exams.name | uppercase}]}</h1>
 		<div class="row">	
 			<a ng-href="#/language/{[{exams.name | lowercase}]}/{[{exam.slug}]}" ng-repeat="exam in exams.exam" class="col-sm-3 language animated zoomInDown">
-				<img src="../static/img/exam.png" alt="" />
+				<div>
+					<img src="../static/img/exam.png" alt="" />
+				</div>
 				<h3>{[{exam.name}]}</h3>
 			</a>
 		</div>

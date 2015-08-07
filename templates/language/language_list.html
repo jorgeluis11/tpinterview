@@ -4,7 +4,12 @@
 	<h1 id="language-title">Languages</h1>
 		<div class="row">	
 			<a ng-href="#/language/{[{language.slug}]}" ng-repeat="language in languages" class="col-sm-3 language animated zoomInDown">
-				<img ng-src="../static/img/{[{language.name}]}.png" alt="" />
+				<div>
+					
+				
+				<img ng-show="language.name === 'C#'" ng-src="../static/img/cSharp.png" alt="" />
+				<img ng-show="language.name !== 'C#'" ng-src="../static/img/{[{language.name}]}.png" alt="" />
+</div>
 				<h3>{[{language.name}]}</h3>
 			</a>
 		</div>
