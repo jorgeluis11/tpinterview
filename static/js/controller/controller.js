@@ -22,7 +22,7 @@ angular.module("starter")
 	$scope.questions = [];
 	$scope.submitButton = false;
 
-	$scope.nameInserted = false;
+	$scope.nameInserted = true;
 	$scope.name = "";
 
 	$http.get("/api/languages/"+$routeParams.languageSlug+"/"+$routeParams.examSlug).then(function(data){
@@ -36,10 +36,16 @@ angular.module("starter")
     	restrict:"A",
     	link:function (scope, element, attrs) {
         element.bind("keydown keypress", function (event) {
+        	console.log(element);
             if(event.which === 13) {
                 scope.$apply(function (){
-                    // scope.$eval(attrs.ngEnter);
-                    scope.nameInserted = true;
+                	if (scope.nameText.trim()) 
+                	{
+                		$(".write-name-group").removeClass("animated").fadeOut(500,function(){
+                			scope.nameInserted = true;
+                			$(".exam-container").show().addClass("animated fadeInUp");                			
+                		});
+                	}
                 });
                 event.preventDefault();
             }

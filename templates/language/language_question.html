@@ -2,16 +2,25 @@
 
 {% block content %}
 	<div class="row">	
-		<div>
-			<div class="form-group write-name-group">
-				<div ng-hide="nameInserted">
-				    <h1> Escriba Su Nombre y Presione <u>Enter</u></h1>
-				    <br>
-				    <h1><i class="fa fa-hand-o-down animated-hand bounce"></i></h1>
-				    <input ng-enter class="form-control" id="inputdefault" type="text">
-			    </div>
-		  	</div>
-		</div>
+		<div class="form-group write-name-group animated fadeInDown">
+			<div ng-hide="nameInserted">
+			    <h1> Escriba Su Nombre Completo<br> y <br>Presione <u>Enter</u></h1>
+			    <br>
+			    <h1><i class="fa fa-hand-o-down animated-hand bounce"></i></h1>
+			    <input ng-model="nameText" ng-enter class="form-control" id="inputdefault" type="text" placeholder="Nombre">
+		    </div>
+	  	</div>
+	  	<div class="exam-container">
+			<div ng-show="nameInserted" class="keep-calm">
+				<h1>
+					<i class="fa fa-hand-peace-o" class=""></i> 
+						<br>Keep <br>Calm <br> {[{nameText}]} <br>And <br>Good Luck<br>With The Exam!
+				</h1>
+				<hr>
+			</div>
+		<h1 class="language-title-exam">
+			{[{questions.language.name}]} Exam
+		</h1>
 		<div ng-show="nameInserted" ng-repeat="question in questions.questions">
 			<h1 class="question-title" >
 				{[{question.question}]}
@@ -20,7 +29,7 @@
 			  useWrapMode : true,
 			  showGutter: true,
 			  theme:'twilight',
-			  mode: 'python'
+			  mode: '{[{questions.language.name | lowercase}]}'
 			}"></div>
 			<br>
 			<hr>
@@ -28,5 +37,6 @@
 		<button  ng-show="submitButton && nameInserted" class="btn btn-success btn-submit">Submit</button>
 		<br>
 		<br>
-	</div>
+		</div>
+</div>
 {% endblock %}

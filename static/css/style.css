@@ -1,4 +1,8 @@
 
+/*body::-webkit-scrollbar {
+        display:none;
+}*/
+
 @font-face {
     font-family: "Edwardian Script";
     src: url("../fonts/Edwardian_Script_ITC.ttf");
@@ -7,8 +11,16 @@
 
 @font-face{
     /* Jorge Luis Perez Lop: */
- font-family: "BrushScriptMT";
-    src: url("../fonts/BrushScriptStd.ttf");font-size: 36px;
+    font-family: "BrushScriptMT";
+    src: url("../fonts/BrushScriptStd.ttf");
+    font-size: 36px;
+}
+
+@font-face{
+    /* Jorge Luis Perez Lop: */
+    font-family: "keepcalm";
+    src: url("../fonts/KeepCalm.ttf");f
+    font-size: 36px;
 }
 
 .language{
@@ -56,14 +68,20 @@
 .question-title{
     text-align: center;
     color: #222222;
+    line-height: 26px;
+    margin: 10px;
 }
 
-.ace_editor { height: 200px; }
+.ace_editor { height: 400px; }
 
 .btn-submit{
     display: block;
     width: 100%;
     font-size: 1.4em;
+}
+
+.write-name-group{
+    margin: 50px 0;
 }
 
 .write-name-group > div > h1{
@@ -74,7 +92,7 @@
 
 .write-name-group > div > h1 > i {
     font-size: 2em;
-    margin-bottom: 10px;
+    margin-bottom: 18px;
 }
 
 .write-name-group >div> input{
@@ -87,7 +105,49 @@
     line-height: 1.42857143;
     color: #555;
     text-align: center;
-    background-color: rgba(240,248,255, 0.5);
+    background-color: rgba(240,248,255, 1);
     border: none;
+}
+
+
+.write-name-group >div> input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    font-family:  helvetica, arial;
+}
+.write-name-group >div> input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    font-family:  helvetica, arial;
+   opacity:  1;
+}
+.write-name-group >div> input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    font-family:  helvetica, arial;
+   opacity:  1;
+}
+.write-name-group >div> input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    font-family:  helvetica, arial;
+}
+
+.exam-container{
+    /*display: none;*/
+}
+.keep-calm{
+    font-family: 'keepcalm', helvetica, arial;
+    text-align: center;
+    font-size: 3em;
+    margin-bottom: 50px;
+}
+
+.keep-calm> h1{
+    line-height: 50px;
+}
+
+.keep-calm > h1 > i{
+    font-size: 4em;
+    margin-bottom: 15px;
+}
+
+.language-title-exam{
+    text-align: center;
+    margin: 60px 0;
+    font-size: 3.5em;
+    text-decoration: underline;
 }
 
