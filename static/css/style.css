@@ -57,13 +57,19 @@
 }
 
 .language>div{
-    height: 190px;
+    height: 210px;
 }
+
+
 
 .language>div>img{
     width: 71%;
     margin: 0 auto;
     display: block;
+}
+
+.css3{
+    width: 71% !important;
 }
 
 #language-title{

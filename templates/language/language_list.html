@@ -6,7 +6,7 @@
 			<a ng-href="#/language/{[{language.slug}]}" ng-repeat="language in languages" class="col-sm-3 language animated zoomInDown">
 				<div>
 					<img ng-show="language.name === 'C#'" ng-src="../static/img/cSharp.png" alt="" />
-					<img ng-show="language.name !== 'C#'" ng-src="../static/img/{[{language.name|lowercase}]}.png" alt="" />
+					<img ng-show="language.name !== 'C#'" ng-class"css3: language.name === 'CSS3'" ng-src="../static/img/{[{language.name|lowercase}]}.png" alt="" />
 				</div>
 				<h3>{[{language.name}]}</h3>
 			</a>
