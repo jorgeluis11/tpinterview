@@ -20,7 +20,7 @@
    
     <script src="{% static 'js/vendor/angular.min.js' %}"></script>
     <script src="{% static 'js/vendor/angular-route.js' %}"></script>
-        <script src="{% static 'js/vendor/jquery-2.1.0.js' %}"></script>
+    <script src="{% static 'js/vendor/jquery-2.1.0.js' %}"></script>
 
     <script type="text/javascript" src="{% static "js/app.js" %}"></script>
     <script type="text/javascript" src="{% static "js/controller/controller.js" %}"></script>
@@ -47,11 +47,13 @@
         </div>-->
     {% endblock %}
 
-    <div id="background-image" >
-        <div class="container">
-            {% block content %}{% endblock %}
+    {% block container %}
+        <div id="background-image">
+            <div class="container">
+                {% block content %}{% endblock %}
+            </div>
         </div>
-    </div>
+    {% endblock %}
     
     {% block extra_body %}{% endblock %}
     
