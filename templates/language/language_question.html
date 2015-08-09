@@ -1,4 +1,9 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block extra_head%}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/language_question.css' %}">
+{% endblock %}
 
 {% block content %}
 	<div class="row">	
@@ -18,25 +23,66 @@
 				</h1>
 				<hr>
 			</div>
-		<h1 ng-show="nameInserted" class="language-title-exam">
-			{[{questions.language.name}]} Exam
-		</h1>
-		<div ng-show="nameInserted" ng-repeat="question in questions.questions">
-			<h1 class="question-title" >
-				{[{question.question}]}
-			</h1>
-			<div ui-ace="{
-			  useWrapMode : true,
-			  showGutter: true,
-			  theme:'twilight',
-			  mode: '{[{questions.language.name | lowercase}]}'
-			}"></div>
-			<br>
-			<hr>
+			<div class="exam-question-list">
+				<h1 ng-show="nameInserted" class="language-title-exam">
+					{[{questions.language.name}]} {[{questions.language.exam.exam}]}  Exam
+				</h1>
+				<div ng-show="nameInserted" ng-repeat="question in questions.questions">
+					<h2 class="question-title" >
+						{[{ $index + 1 }]}. {[{question.question}]}
+					</h2>
+					<div ui-ace="{
+					  useWrapMode : true,
+					  showGutter: true,
+					  theme:'twilight',
+					  mode: '{[{questions.language.name | lowercase}]}'
+					}"></div>
+					<br>
+					<hr>
+				</div>
+				<button  ng-show="submitButton && nameInserted" class="btn btn-success btn-submit">Submit</button>
+				<br>
+				<br>
+			</div>
 		</div>
-		<button  ng-show="submitButton && nameInserted" class="btn btn-success btn-submit">Submit</button>
-		<br>
-		<br>
+	</div>
+
+	<div class="ui basic visible modal">
+		<i class="close icon"></i>
+		<div class="header">
+			Archive Old Messages
 		</div>
-</div>
+		<div class="image content">
+			<div class="image">
+			  <i class="archive icon"></i>
+			</div>
+			<div class="description">
+			  <p>Your inbox is getting full, would you like us to enable automatic archiving of old messages?</p>
+			</div>
+		</div>
+		<div class="actions">
+			<div class="two fluid ui inverted buttons">
+				<div class="ui red basic inverted button">
+					<i class="remove icon"></i>
+					No
+				</div>
+				<div class="ui green basic inverted button">
+					<i class="checkmark icon"></i>
+					Yes
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="{% static 'js/semantic-modal.js' %}"></script>
+	<script>
+		$(document).ready(function(){
+			$('.btn-submit').click(function(){
+				alert('hello');
+			})
+		})
+	</script>
+{% endblock %}
+
+{% block extra_bottom %}
+
 {% endblock %}

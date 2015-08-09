@@ -1,0 +1,16 @@
+.exam-question-list{
+	background-color: white;
+	border: 1px dotted #ccc;
+	border-radius: 47px;
+	padding: 40px;
+}
+
+
+.exam-question-list > h1{
+	border-bottom: 1px dotted #ddd;
+    padding-bottom: 25px;
+}
+
+.exam-question-list > h2{
+
+}
