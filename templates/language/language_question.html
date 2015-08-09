@@ -9,9 +9,9 @@
 	<div class="row">	
 		<div class="form-group write-name-group animated fadeInDown">
 			<div ng-hide="nameInserted">
-			    <h1> Escriba Su Nombre Completo<br> y <br>Presione <u>Enter</u></h1>
+			    <h2> Escriba Su Nombre Completo<br> y <br>Presione <u>Enter</u></h2>
 			    <br>
-			    <h1><i class="fa fa-hand-o-down animated-hand bounce"></i></h1>
+			    <h2><i class="fa fa-hand-o-down animated-hand bounce"></i></h2>
 			    <input ng-model="nameText" ng-enter class="form-control" id="inputdefault" type="text" placeholder="Nombre">
 		    </div>
 	  	</div>
@@ -19,13 +19,13 @@
 			<div ng-show="nameInserted" class="keep-calm">
 				<h1>
 					<i class="fa fa-hand-peace-o" class=""></i> 
-						<br>Keep <br>Calm <br> {[{nameText}]} <br>And <br>Good Luck<br>With The Exam!
+						<br>Keep <br>Calm <br> {[{nameText}]} <br>And <br>Good Luck<br>With The Test!
 				</h1>
 				<hr>
 			</div>
 			<div class="exam-question-list">
 				<h1 ng-show="nameInserted" class="language-title-exam">
-					{[{questions.language.name}]} {[{questions.language.exam.exam}]}  Exam
+					{[{questions.language.name}]} {[{questions.language.exam.exam}]}  Test
 				</h1>
 				<div ng-show="nameInserted" ng-repeat="question in questions.questions">
 					<h2 class="question-title" >

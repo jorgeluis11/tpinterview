@@ -24,14 +24,6 @@
     src: url("../fonts/Edwardian_Script_ITC.ttf");
 }
 
-
-@font-face{
-    /* Jorge Luis Perez Lop: */
-    font-family: "BrushScriptMT";
-    src: url("../fonts/BrushScriptStd.ttf");
-    font-size: 36px;
-}
-
 @font-face{
     /* Jorge Luis Perez Lop: */
     font-family: "keepcalm";
@@ -105,13 +97,13 @@
     margin: 50px 0;
 }
 
-.write-name-group > div > h1{
+.write-name-group > div > h2{
     text-align: center;
     font-size: 3.0em;
     color:#222222;
 }
 
-.write-name-group > div > h1 > i {
+.write-name-group > div > h2 > i {
     font-size: 2em;
     margin-bottom: 18px;
 }
@@ -237,4 +229,10 @@
 
 #copyright{
     text-shadow: 2px 7px 3px #111;
+}
+
+.language-box{
+    border: 1px solid #eee;
+    border-radius: 30px;
+    background-color: rgba(230, 230, 230, .1);
 }
