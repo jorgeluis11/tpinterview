@@ -4,6 +4,7 @@
 
 .container{
 	width: 1150px !important;
+    padding-bottom: 0px;
 }
 
 .carousel { z-index: -99; } /* keeps this behind all content */
