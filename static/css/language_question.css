@@ -7,12 +7,12 @@
 
 
 .exam-question-list > h1{
-	border-bottom: 1px dotted #ddd;
     padding-bottom: 25px;
 }
 
 .exam-question-list > h2{
-	
+	border-bottom: 1px dotted #ddd;
+	padding-bottom: 25px;
 }
 
 .exam-question-list .ace_editor{

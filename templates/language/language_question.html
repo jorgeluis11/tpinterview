@@ -23,11 +23,12 @@
 				<hr>
 			</div>
 			<div class="exam-question-list">
-				<h1 ng-show="nameInserted" class="language-title-exam">
-					{[{questions.language.name}]} {[{questions.language.exam.exam}]}  Test
+				<h1 ng-show="nameInserted" class="language-title-exam text-center">
+					{[{questions.language.name}]} Test
 				</h1>
+				<h2 class="text-center">{[{questions.name}]}</h2>
 				<div ng-show="nameInserted" ng-repeat="question in questions.questions">
-					<h2 class="question-title" >
+					<h2 class="question-title text-center" >
 						{[{ $index + 1 }]}. {[{question.question}]}
 					</h2>
 					<div ui-ace="{
