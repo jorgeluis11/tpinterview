@@ -3,7 +3,9 @@
 }
 
 #background-image {
-   position: relative;
+    min-height: 100%;
+    position: absolute;
+    width: 100%;
 }
 
 #background-image:before{
@@ -229,4 +231,14 @@
     border: 1px solid #eee;
     border-radius: 30px;
     background-color: rgba(230, 230, 230, .1);
+}
+
+.test-language-list img{
+    width: 30px;
+    height: 30px;
+}
+
+.test-language-list p{
+    margin-top: 5px;
+    margin-bottom: 0px;
 }

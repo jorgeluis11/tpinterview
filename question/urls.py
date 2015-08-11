@@ -5,6 +5,7 @@ from .views import index
 from .views import languages
 from .views import languagesDetail
 from .views import languagesQuestionList
+from .views import testList
 from .views import user_login
 
 urlpatterns = patterns('',
@@ -15,8 +16,9 @@ urlpatterns = patterns('',
         name='language-detail'),
     url(r'^language/language_question.html/$', languagesQuestionList,
         name='language-exam-detail'),
-    (r'^login/$', 'django.contrib.auth.views.login', {
-    'template_name': 'login.html'
-	}),
-	(r'^login/validation$', user_login),
+    url(r'^test/test_list.html/$', testList,
+        name='test-list'),
+    (r'^login/$', 'django.contrib.auth.views.login',
+        {'template_name': 'login.html'}),
+    (r'^login/validation$', user_login),
 )

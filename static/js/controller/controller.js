@@ -30,7 +30,24 @@ angular.module("starter")
 		$scope.submitButton = true;
 	});
 
+}]).controller('testCtrl', ['$scope', '$routeParams', '$http', function ($scope, $routeParams, $http) {
+    //$($(".ace_identifier")[0]).html()
+
+    $scope.tests = [];
+    $scope.submitButton = false;
+
+    $scope.nameInserted = false;
+    $scope.name = "";
+
+    $http.get("/api/test/").then(function(data){
+        $scope.tests = data.data;
+        $scope.submitButton = true;
+    });
+
 }])
+
+
+
 .directive('ngEnter', function () {
     return {
     	restrict:"A",

@@ -22,7 +22,11 @@ angular.module('starter', ['ngRoute', 'ui.ace'])
     templateUrl: '/language/language_question.html',
     controller: 'questionCtrl',
   })
-  
+  .when('/test/', {
+    templateUrl: '/test/test_list.html',
+    controller: 'testCtrl',
+  })
+
   .otherwise({ redirectTo: '/language' });
 
   // configure html5 to get links working on jsfiddle

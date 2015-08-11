@@ -44,10 +44,12 @@ class LanguageRetrieveSerializer(serializers.ModelSerializer):
 
 class ExamListSerializer(serializers.ModelSerializer):
     language = LanguageListSerializer()
+    created_date = serializers.DateTimeField(format='%m/%d/%Y')
 
     class Meta:
         model = Exam
-        fields = ('id', 'name', 'slug', 'language')
+        fields = ('id', 'name', 'slug', 'language',
+                  'created_date')
 
 
 class ExamRetrieveSerializer(serializers.ModelSerializer):

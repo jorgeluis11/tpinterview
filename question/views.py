@@ -11,21 +11,31 @@ from django.contrib.auth import login
 
 from django.template import RequestContext
 
+
 class index(TemplateView):
     login_required = True
     template_name = 'index.html'
+
 
 @login_required
 def languages(request):
     return render_to_response("language/language_list.html", {})
 
+
 @login_required
 def languagesDetail(request):
     return render_to_response("language/language_detail.html", {})
 
+
 @login_required
 def languagesQuestionList(request):
     return render_to_response("language/language_question.html", {})
+
+
+@login_required
+def testList(request):
+    return render_to_response("test/test_list.html", {})
+
 
 def user_login(request):
     # Like before, obtain the context for the user's request.
@@ -43,8 +53,8 @@ def user_login(request):
         user = authenticate(username=username, password=password)
 
         # If we have a User object, the details are correct.
-        # If None (Python's way of representing the absence of a value), no user
-        # with matching credentials was found.
+        # If None (Python's way of representing the absence of a value),
+        #no user with matching credentials was found.
         if user:
             # Is the account active? It could have been disabled.
             if user.is_active:
@@ -58,7 +68,7 @@ def user_login(request):
         else:
             # Bad login details were provided. So we can't log the user in.
             print "Invalid login details: {0}, {1}".format(username, password)
-            return render_to_response('login.html', {'error':True}, context)
+            return render_to_response('login.html', {'error': True}, context)
     # The request is not a HTTP POST, so display the login form.
     # This scenario would most likely be a HTTP GET.
     else:

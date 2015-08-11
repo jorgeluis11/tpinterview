@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block title %}{% endblock %}
+
 {% block header %}
 	<div id="header">
 		<div class="tp-color-background"></div>
@@ -10,7 +12,7 @@
             </a>
         </div>
         <div id="header-right" class="pull-right">
-            <a href="" class="pull-right"><h3 class="header-right-h3">Test List</h3></a>
+            <a href="/#/test/" class="pull-right"><h3 class="header-right-h3">Test List</h3></a>
             <a href="" class="pull-right"><h3>Programming Languages</h3></a>
         </div>
     </div>
@@ -23,9 +25,9 @@
 {% endblock %}
 
 {% block footer %}
-	 <div id="footer" class="text-center">
+<!-- 	 <div id="footer" class="text-center">
         <p id="copyright">
             Copyright © {% now "Y" %}. All rights reserved.
         </p>
-    </div>
+    </div> -->
 {% endblock %}
