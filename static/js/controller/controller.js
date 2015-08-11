@@ -42,9 +42,9 @@ angular.module("starter")
                 scope.$apply(function (){
                     if (scope.nameText.trim()) 
                     {
-                        $(".write-name-group").removeClass("animated").fadeOut(500,function(){
+                        $(".write-name-group").removeClass("animated").fadeOut(600,function(){
                             scope.nameInserted = true;
-                            $(".exam-container").show().addClass("animated fadeInUp");                          
+                            $(".exam-container").addClass("animated fadeInUpBig");                          
                         });
                     }
                 });
