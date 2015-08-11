@@ -7,7 +7,7 @@ from django.views.generic import TemplateView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate
 from django.contrib.auth import login
-
+import ast
 
 from django.template import RequestContext
 
@@ -65,3 +65,14 @@ def user_login(request):
         # No context variables to pass to the template system, hence the
         # blank dictionary object...
         return render_to_response('login.html', {}, context)
+
+
+def insert_question(request):
+    # Like before, obtain the context for the user's request.
+    answers = dict(request.POST)
+    # print answers['{"answers":"text"}']
+    # print request.POST.post['answers']
+    for key, value in request.POST.iteritems():
+        answer = key
+    print ast.literal_eval(answer)[0]
+    return HttpResponse(answers)

@@ -27,11 +27,11 @@
 					{[{questions.language.name}]} Test
 				</h1>
 				<h2 class="text-center">{[{questions.name}]}</h2>
-				<div ng-show="nameInserted" ng-repeat="question in questions.questions">
+				<div ng-show="nameInserted" ng-repeat="question in questions.questions | orderBy:'order'">
 					<h2 class="question-title text-center" >
 						{[{ $index + 1 }]}. {[{question.question}]}
 					</h2>
-					<div ui-ace="{
+					<div data-id="{[{questions.id}]}" ui-ace="{
 					  useWrapMode : true,
 					  showGutter: true,
 					  theme:'twilight',
@@ -40,7 +40,8 @@
 					<br>
 					<hr>
 				</div>
-				<button  ng-show="submitButton && nameInserted" class="btn btn-success btn-submit">Submit</button>
+				<button  ng-show="submitButton && nameInserted" submit class="btn btn-success btn-submit">Submit</button>
+
 				<br>
 				<br>
 			</div>
