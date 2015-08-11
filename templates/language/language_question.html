@@ -1,12 +1,16 @@
-{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_head%}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/language_question.css' %}">
+{% endblock %}
 
 {% block content %}
 	<div class="row">	
 		<div class="form-group write-name-group animated fadeInDown">
 			<div ng-hide="nameInserted">
-			    <h1> Escriba Su Nombre Completo<br> y <br>Presione <u>Enter</u></h1>
+			    <h2> Escriba Su Nombre Completo<br> y <br>Presione <u>Enter</u></h2>
 			    <br>
-			    <h1><i class="fa fa-hand-o-down animated-hand bounce"></i></h1>
+			    <h2><i class="fa fa-hand-o-down animated-hand bounce"></i></h2>
 			    <input ng-model="nameText" ng-enter class="form-control" id="inputdefault" type="text" placeholder="Nombre">
 		    </div>
 	  	</div>
@@ -14,29 +18,32 @@
 			<div ng-show="nameInserted" class="keep-calm">
 				<h1>
 					<i class="fa fa-hand-peace-o" class=""></i> 
-						<br>Keep <br>Calm <br> {[{nameText}]} <br>And <br>Good Luck<br>With The Exam!
+						<br>Keep <br>Calm <br> {[{nameText}]} <br>And <br>Good Luck<br>With The Test!
 				</h1>
 				<hr>
 			</div>
-		<h1 ng-show="nameInserted" class="language-title-exam">
-			{[{questions.language.name}]} Exam
-		</h1>
-		<div ng-show="nameInserted" ng-repeat="question in questions.questions">
-			<h1 class="question-title" >
-				{[{question.question}]}
-			</h1>
-			<div ui-ace="{
-			  useWrapMode : true,
-			  showGutter: true,
-			  theme:'twilight',
-			  mode: '{[{questions.language.name | lowercase}]}'
-			}"></div>
-			<br>
-			<hr>
+			<div class="exam-question-list">
+				<h1 ng-show="nameInserted" class="language-title-exam text-center">
+					{[{questions.language.name}]} Test
+				</h1>
+				<h2 class="text-center">{[{questions.name}]}</h2>
+				<div ng-show="nameInserted" ng-repeat="question in questions.questions">
+					<h2 class="question-title text-center" >
+						{[{ $index + 1 }]}. {[{question.question}]}
+					</h2>
+					<div ui-ace="{
+					  useWrapMode : true,
+					  showGutter: true,
+					  theme:'twilight',
+					  mode: '{[{questions.language.name | lowercase}]}'
+					}"></div>
+					<br>
+					<hr>
+				</div>
+				<button  ng-show="submitButton && nameInserted" class="btn btn-success btn-submit">Submit</button>
+				<br>
+				<br>
+			</div>
 		</div>
-		<button  ng-show="submitButton && nameInserted" class="btn btn-success btn-submit">Submit</button>
-		<br>
-		<br>
-		</div>
-</div>
+	</div>
 {% endblock %}
