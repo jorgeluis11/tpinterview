@@ -1,5 +1,5 @@
 angular.module('starter', ['ngRoute', 'ui.ace'])
-.config(function($routeProvider, $interpolateProvider) {
+.config(function($routeProvider, $interpolateProvider, $httpProvider) {
   $routeProvider
    .when('/language', {
     templateUrl: '/language/language_list.html',
@@ -32,4 +32,11 @@ angular.module('starter', ['ngRoute', 'ui.ace'])
   // configure html5 to get links working on jsfiddle
   $interpolateProvider.startSymbol('{[{');
   $interpolateProvider.endSymbol('}]}');
+
+
+  $httpProvider.defaults.xsrfCookieName = 'csrftoken';
+  $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
+
+    $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
+
 })

@@ -67,8 +67,10 @@
 }
 
 .language>div{
-    height: 190px;
+    height: 192px;
 }
+
+
 
 .language>div>img{
     width: 71%;
@@ -76,7 +78,15 @@
     display: block;
 }
 
-.question-title{
+.css3{
+    width: 71% !important;
+}
+
+#language-title{
+    text-align: center;
+}
+
+ .question-title{
     color: #222222;
     line-height: 26px;
     margin: 20px 0;

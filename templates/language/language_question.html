@@ -6,7 +6,7 @@
 
 {% block content %}
 	<div class="row">	
-		<div class="form-group write-name-group animated fadeInDown">
+		<div class="form-group write-name-group animated fadeIn">
 			<div ng-hide="nameInserted">
 			    <h2> Escriba Su Nombre Completo<br> y <br>Presione <u>Enter</u></h2>
 			    <br>
@@ -15,6 +15,7 @@
 		    </div>
 	  	</div>
 	  	<div class="exam-container">
+	  		<!--
 			<div ng-show="nameInserted" class="keep-calm">
 				<h1>
 					<i class="fa fa-hand-peace-o" class=""></i> 
@@ -22,16 +23,17 @@
 				</h1>
 				<hr>
 			</div>
-			<div class="exam-question-list">
-				<h1 ng-show="nameInserted" class="language-title-exam text-center">
+			-->
+			<div ng-show="nameInserted"class="exam-question-list">
+				<h1  class="language-title-exam text-center">
 					{[{questions.language.name}]} Test
 				</h1>
 				<h2 class="text-center">{[{questions.name}]}</h2>
-				<div ng-show="nameInserted" ng-repeat="question in questions.questions">
+				<div ng-repeat="question in questions.questions | orderBy:'order'">
 					<h2 class="question-title text-center" >
 						{[{ $index + 1 }]}. {[{question.question}]}
 					</h2>
-					<div ui-ace="{
+					<div data-id="{[{questions.id}]}" ui-ace="{
 					  useWrapMode : true,
 					  showGutter: true,
 					  theme:'twilight',
@@ -40,7 +42,8 @@
 					<br>
 					<hr>
 				</div>
-				<button  ng-show="submitButton && nameInserted" class="btn btn-success btn-submit">Submit</button>
+				<button  ng-show="submitButton && nameInserted" submit class="btn btn-success btn-submit">Submit</button>
+
 				<br>
 				<br>
 			</div>
