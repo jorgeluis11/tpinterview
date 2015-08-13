@@ -2,12 +2,12 @@
     padding-bottom: 50px;
 }
 
-h1, h2, h3{
+h1, h2, h3, td, a{
     font-family: 'Raleway', sans-serif;
 }
 
 h4, h5, h6, p,
-button, label, div{
+button, label, th{
     font-family: 'Ubuntu', sans-serif;
 }
 
@@ -31,7 +31,6 @@ button, label, div{
 }
 
 .language{
-    height: 240px;
     border: 1px dotted rgba(0,0,0,0.0);
     display: block;
     color:black;
@@ -62,12 +61,6 @@ button, label, div{
     text-align: center;
     margin-top: 14px;
 }
-
-.language>div{
-    height: 192px;
-}
-
-
 
 .language>div>img{
     width: 71%;
@@ -191,22 +184,23 @@ button, label, div{
     padding: 5px 25px;
 }
 
-#header-right > a{
+.header-right > ul > li a{
     color: #222;
 }
 
-#header-right> a > h3{
+.header-right > ul > li > a > h3{
     margin-left: 20px;
     line-height: 37.5px;
     margin-right: 20px;
     text-decoration: none;
     font-family: 'Raleway', sans-serif;
     font-weight: bold;
-    margin-top: 17px;
-    margin-bottom: 15px;
+    padding-top: 6px;
+    margin-top: 0px;
+    margin-bottom: 4px;
 }
 
-#header-right > a:hover{
+.header-right > ul > li > a:hover{
     background-color: #404041;
     color: white!important;
     -webkit-transition: .25s ease;
@@ -215,6 +209,8 @@ button, label, div{
          -o-transition: .25s  ease;
             transition: .25s  ease;
     text-decoration: none;
+    border-radius: 0px;
+
 }
 
 .logo-img{

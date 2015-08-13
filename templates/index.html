@@ -4,18 +4,26 @@
 {% block title %}{% endblock %}
 
 {% block header %}
-	<div id="header">
+	<nav id="header" class="navbar navbar-default" role="navigation">
 		<div class="tp-color-background"></div>
-        <div id="header-left" class="pull-left">
+        <div id="header-left" class="navbar-header">
             <a href="">
             	<img class="logo-img" src="{% static 'img/logo.png'%}"  alt="">
             </a>
+             <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                 <span class="sr-only">Toggle navigation</span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+              </button>
         </div>
-        <div id="header-right" class="pull-left">
-            <a href="" class="pull-left"><h3>Programming Languages</h3></a>
-            <a href="/#/test/" class="pull-left"><h3 class="header-right-h3">Test List</h3></a>
+        <div id="navbar" class="collapse navbar-collapse header-right">
+            <ul class="nav nav-tabs" role="tablist">
+                <li><a href=""><h3>Programming Languages</h3></a></li>
+                <li><a href="/#/test/"><h3>Test List</h3></a></li>
+            </ul>
         </div>
-    </div>
+    </nav>
 {% endblock %}
 
 {% block content %}

@@ -48,19 +48,20 @@
     -o-background-size: cover;
 }
 
-/*.carousel-inner .four {
-    background: url(../img/backgrounds/4.png);
-    background-size: cover;
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
-}*/
-
 .carousel-inner .four {
     background: url(../img/backgrounds/1.png);
     background-size: cover;
     -moz-background-size: cover;
     -webkit-background-size: cover;
 }
+
+
+/*.carousel-inner .five {
+    background: url(../img/backgrounds/4.png);
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+}*/
 
 .carousel .active.left {
     visibility: visible;
@@ -72,4 +73,32 @@
     -ms-transition: opacity 1s;
     -o-transition: opacity 1s;
     transition: opacity 1s;
+}
+
+#login-alert{
+    display:none
+}
+
+.input-group{
+    margin-bottom: 25px
+}
+
+#btn-login{
+    width: 100%;
+}
+
+#login-image-box{
+    margin-top:130px;
+    margin-bottom: 10px; 
+}
+
+#login-image-box > img{
+}
+
+.panel-body{
+    padding-top:30px;
+}
+
+.form-group{
+    margin-top:10px;
 }
