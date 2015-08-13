@@ -25,7 +25,7 @@
 }
 
 .carousel-inner .one {
-    background: url(../img/backgrounds/1.png);
+    background: url(../img/backgrounds/5.png);
     background-size: cover;
     -moz-background-size: cover;
     -webkit-background-size: cover;
@@ -48,15 +48,15 @@
     -o-background-size: cover;
 }
 
-.carousel-inner .four {
+/*.carousel-inner .four {
     background: url(../img/backgrounds/4.png);
     background-size: cover;
     -moz-background-size: cover;
     -webkit-background-size: cover;
-}
+}*/
 
-.carousel-inner .five {
-    background: url(../img/backgrounds/5.png);
+.carousel-inner .four {
+    background: url(../img/backgrounds/1.png);
     background-size: cover;
     -moz-background-size: cover;
     -webkit-background-size: cover;

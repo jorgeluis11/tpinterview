@@ -4,7 +4,6 @@ from core.models import TimeStampedModel
 from autoslug import AutoSlugField
 
 
-# Create your models here.
 class Language(TimeStampedModel):
     name = models.CharField(max_length=55, unique=True, blank=False)
     slug = AutoSlugField(populate_from='name', unique=True, max_length=50)

@@ -7,6 +7,11 @@ from .models import Candidate
 from .models import Answer
 
 
+class QuestionsInlineChoiceInLine(admin.TabularInline):
+    model = Question
+    extra = 3
+
+
 class LanguageAdmin(admin.ModelAdmin):
     fields = ('name', 'status')
     list_display = ('id', 'name', 'status')
@@ -18,16 +23,17 @@ class LanguageAdmin(admin.ModelAdmin):
 class ExamAdmin(admin.ModelAdmin):
     fields = ('language', 'name', 'status')
     list_display = ('id', 'language', 'name',
-    				'status')
+                    'status')
     list_display_links = ['id', 'name', 'status']
     list_filter = ['status', 'name']
     search_fields = ['id', 'name']
+    inlines = [QuestionsInlineChoiceInLine]
 
 
 class QuestionAdmin(admin.ModelAdmin):
     fields = ('exam', 'question', 'order')
     list_display = ('id',  'question', 'exam',
-    				'order')
+                    'order')
     list_display_links = ['id', 'question', 'exam']
     list_filter = ['exam']
     search_fields = ['id', 'question', 'exam']
@@ -36,20 +42,20 @@ class QuestionAdmin(admin.ModelAdmin):
 class CandidateAdmin(admin.ModelAdmin):
     fields = ('exam', 'first_name', 'last_name')
     list_display = ('id', 'exam', 'first_name',
-    				'last_name')
+                    'last_name')
     list_display_links = ['id', 'exam', 'first_name',
-    					 'last_name']
+                          'last_name']
     list_filter = ['exam']
     search_fields = ['id', 'first_name', 'last_name']
 
 
 class AnswerAdmin(admin.ModelAdmin):
     fields = ('question', 'candidate', 'answer',
-    		  'order')
+              'order')
     list_display = ('id', 'question', 'candidate',
-    				'answer', 'order')
+                    'answer', 'order')
     list_display_links = ['id', 'question',
-    					  'candidate']
+                          'candidate']
     list_filter = ['candidate', 'answer']
     search_fields = ['id', 'language']
 
