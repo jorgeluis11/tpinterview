@@ -11,6 +11,14 @@ button, label, th{
     font-family: 'Ubuntu', sans-serif;
 }
 
+.navbar-brand{
+    padding: 2px 15px;
+}
+
+.nav-tabs{
+    border-bottom: 0px;
+}
+
 #background-image {
     min-height: 100%;
     position: absolute;
@@ -169,7 +177,7 @@ button, label, th{
 }
 
 #header{
-    /* Rectangle 11: */
+    border-radius: 0px;
     background: #E8E8E8;
     height: 77px;
     box-shadow: 0px 5px 8px #aaa;
@@ -245,3 +253,25 @@ button, label, th{
     margin-top: 5px;
     margin-bottom: 0px;
 }
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (tablets, 768px and up) */
+@media (max-width: 767px) { 
+    #navbar{
+        width: 100%;
+        box-shadow: rgb(170, 170, 170) 0px 5px 8px;
+        background-color: rgb(232, 232, 232);
+    }
+
+    .nav .nav-tabs > li{
+        width: 100%;
+    }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) { ... }
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { ... }

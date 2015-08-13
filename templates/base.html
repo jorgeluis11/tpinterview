@@ -18,11 +18,12 @@
     <meta property="og:description" content="Seleccion de vinos a la carta."/>
     <meta property="og:type" content="article"/>
     <meta property="og:image" content="{% static "" %}"/>
-   
-    <script src="{% static 'js/vendor/angular.min.js' %}"></script>
-    <script src="{% static 'js/vendor/angular-route.js' %}"></script>
-    <script src="{% static 'js/vendor/jquery-2.1.0.js' %}"></script>
+    <script src="{% static 'js/vendor/jquery-2.1.4.js' %}"></script>
 
+    <script src="{% static "js/vendor/angular.min.js" %}"></script>
+    <script src="{% static "js/vendor/angular-route.js" %}"></script>
+
+    <script src="{% static "js/vendor/jquery-2.1.4.js" %}"></script>
     <script type="text/javascript" src="{% static "js/app.js" %}"></script>
     <script type="text/javascript" src="{% static "js/controller/controller.js" %}"></script>
     <script src="{% static 'js/vendor/ace/ace.js' %}"></script>
@@ -34,7 +35,26 @@
     {% endblock %}
 </head>
 <body>
-    {% block header %}{% endblock %}
+    {% block header %}
+        <nav id="header" class="navbar navbar-default" role="navigation">
+            <div class="tp-color-background"></div>
+            <div id="header-left" class="navbar-header">
+                 <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                     <span class="sr-only">Toggle navigation</span>
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href=""><img class="logo-img" src="{% static 'img/logo.png'%}"  alt=""></a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse header-right">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li><a href=""><h3>Programming Languages</h3></a></li>
+                    <li><a href="/#/test/"><h3>Test List</h3></a></li>
+                </ul>
+            </div>
+        </nav>
+    {% endblock %}
 
     {% block container %}
         <div id="background-image">
@@ -46,9 +66,17 @@
     
     {% block extra_body %}{% endblock %}
     
-    {% block footer %}{% endblock %}
-
+    {% block footer %}
+        <!--     <div id="footer" class="text-center">
+        <p id="copyright">
+            Copyright © {% now "Y" %}. All rights reserved.
+        </p>
+    </div> -->
+    {% endblock %}
+        
+    <script src="{% static "js/vendor/bootstrap.min.js" %}"></script>
     {% block js %}{% endblock %}
+
     {% block extra_bottom %}{% endblock %}
 </body>
 </html>

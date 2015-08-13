@@ -37,14 +37,10 @@ class Question(TimeStampedModel):
 # Create your models here.
 class Candidate(TimeStampedModel):
     exam = models.ForeignKey(Exam)
-    first_name = models.CharField(max_length=55, blank=False)
-    last_name = models.CharField(max_length=55, blank=False)
+    name = models.CharField(max_length=55, blank=False)
 
     def __unicode__(self):
-        return self.fist_name
-
-    def fullname(self):
-        return self.first_name + " " + self.last_name
+        return self.name
 
 
 # Create your models here.

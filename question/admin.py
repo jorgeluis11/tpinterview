@@ -40,13 +40,11 @@ class QuestionAdmin(admin.ModelAdmin):
 
 
 class CandidateAdmin(admin.ModelAdmin):
-    fields = ('exam', 'first_name', 'last_name')
-    list_display = ('id', 'exam', 'first_name',
-                    'last_name')
-    list_display_links = ['id', 'exam', 'first_name',
-                          'last_name']
+    fields = ('exam', 'name')
+    list_display = ('id', 'exam', 'name',)
+    list_display_links = ['id', 'exam', 'name']
     list_filter = ['exam']
-    search_fields = ['id', 'first_name', 'last_name']
+    search_fields = ['id', 'name']
 
 
 class AnswerAdmin(admin.ModelAdmin):
