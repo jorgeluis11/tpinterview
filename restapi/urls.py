@@ -5,7 +5,8 @@ from .views import LanguageListAPI
 from .views import LanguageRetrieveAPI
 from .views import ExamRetrieveAPI
 from .views import ExamListAPI
-from .views import ExamInsertAPI
+from .views import AnswerInsertAPI
+from .views import CandidateInsertAPI
 
 
 urlpatterns = patterns('',
@@ -20,7 +21,10 @@ urlpatterns = patterns('',
     url(r'^api/test/$',
         ExamListAPI.as_view(),
         name='api-exam-list'),
-    url(r'^api/exams/post/$',
-        ExamInsertAPI.as_view(),
+    url(r'^api/candidate/$',
+        CandidateInsertAPI.as_view(),
+        name='api-exam-insert'),
+    url(r'^api/answer/$',
+        AnswerInsertAPI.as_view(),
         name='api-exam-insert'),
 )

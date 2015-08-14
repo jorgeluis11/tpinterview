@@ -5,11 +5,14 @@ from rest_framework import generics
 
 from question.models import Language
 from question.models import Exam
+from question.models import Answer
+from question.models import Candidate
 from .serializers import LanguageListSerializer
 from .serializers import LanguageRetrieveSerializer
 from .serializers import ExamRetrieveSerializer
 from .serializers import ExamListSerializer
-from .serializers import ExamInsertSerializer
+from .serializers import AnswerInsertSerializer
+from .serializers import CandidateInsertSerializer
 
 
 class LanguageListAPI(generics.ListAPIView):
@@ -34,6 +37,11 @@ class ExamListAPI(generics.ListAPIView):
     queryset = Exam.objects.filter(status=True)
 
 
-class ExamInsertAPI(generics.CreateAPIView):
-    serializer_class = ExamInsertSerializer
-    queryset = Exam.objects.filter(status=True)
+class CandidateInsertAPI(generics.CreateAPIView):
+    serializer_class = CandidateInsertSerializer
+    queryset = Candidate.objects.filter()
+
+
+class AnswerInsertAPI(generics.CreateAPIView):
+    serializer_class = AnswerInsertSerializer
+    queryset = Answer.objects.filter()

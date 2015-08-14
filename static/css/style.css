@@ -43,7 +43,6 @@ button, label, th{
     color:black;
     text-decoration: none;
     margin-bottom: 10px;
-    z-index: -999;
 }
 
 .language:hover{
