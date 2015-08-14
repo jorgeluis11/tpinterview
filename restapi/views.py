@@ -11,6 +11,7 @@ from .serializers import LanguageListSerializer
 from .serializers import LanguageRetrieveSerializer
 from .serializers import ExamRetrieveSerializer
 from .serializers import ExamListSerializer
+from .serializers import CandidatesListSerializer
 from .serializers import AnswerInsertSerializer
 from .serializers import CandidateInsertSerializer
 
@@ -35,6 +36,11 @@ class ExamRetrieveAPI(generics.RetrieveAPIView):
 class ExamListAPI(generics.ListAPIView):
     serializer_class = ExamListSerializer
     queryset = Exam.objects.filter(status=True)
+
+
+class CandidatesListAPI(generics.ListAPIView):
+    serializer_class = CandidatesListSerializer
+    queryset = Candidate.objects.filter()
 
 
 class CandidateInsertAPI(generics.CreateAPIView):

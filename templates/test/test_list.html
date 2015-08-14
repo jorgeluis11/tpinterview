@@ -1,7 +1,7 @@
 {% block content %}
 	<h1 id="language-title" class="text-center">Programming languages</h1>
 	<hr />
-
+	<a href="/#/test/candidates/" class="btn btn-warning pull-right">Candidates Test List</a>
 	<table class="table">
 		<tr>
 			<th>Language</th>
@@ -19,9 +19,9 @@
 			<td><p>{[{ test.name }]}</p></td>
 			<!-- <td>10</td> -->
 			<td><p>{[{ test.created_date }]}</p></td>
-			<th>
+			<td>
 				<a class="btn btn-primary btn-sm" href="#/language/{[{ test.language.slug }]}/{[{ test.slug }]}"><i class=""></i> Take Test</a>
-			</th>
+			</td>
 		</tr>
 	</table>
 {% endblock %}

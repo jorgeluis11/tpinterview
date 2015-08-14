@@ -37,6 +37,11 @@ def testList(request):
     return render_to_response("test/test_list.html", {})
 
 
+@login_required
+def testCandidatesList(request):
+    return render_to_response("test/test_candidates_list.html", {})
+
+
 def user_login(request):
     # Like before, obtain the context for the user's request.
     context = RequestContext(request)

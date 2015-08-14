@@ -25,6 +25,10 @@ angular.module('starter', ['ngRoute', 'ui.ace'])
     templateUrl: '/test/test_list.html',
     controller: 'testCtrl',
   })
+  .when('/test/candidates/', {
+    templateUrl: '/test/test_candidates_list.html',
+    controller: 'testCandidatesCtrl',
+  })
 
   .otherwise({ redirectTo: '/language' });
 

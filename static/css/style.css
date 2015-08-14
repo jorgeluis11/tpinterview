@@ -281,3 +281,7 @@ button, label, th{
         position: absolute;
     }
 }
+
+.table{
+    margin-top: 85px;
+}

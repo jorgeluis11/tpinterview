@@ -68,6 +68,14 @@ class ExamRetrieveSerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'slug', 'language', 'questions')
 
 
+class CandidatesListSerializer(serializers.ModelSerializer):
+    exam = ExamListSerializer()
+
+    class Meta:
+        model = Candidate
+        fields = ('id', 'exam', 'name')
+
+
 class CandidateInsertSerializer(serializers.ModelSerializer):
 
     class Meta:
