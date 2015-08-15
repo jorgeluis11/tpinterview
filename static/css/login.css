@@ -3,7 +3,6 @@
 }
 
 .container{
-	width: 1150px !important;
     padding-bottom: 0px;
 }
 
@@ -93,6 +92,8 @@
 }
 
 #login-image-box > img{
+    margin: 0 auto;
+    display: block;
 }
 
 .panel-body{
