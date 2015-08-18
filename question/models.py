@@ -47,7 +47,7 @@ class Candidate(TimeStampedModel):
 class Answer(TimeStampedModel):
     question = models.ForeignKey(Question)
     candidate = models.ForeignKey(Candidate)
-    answer = models.CharField(max_length=255, blank=False)
+    answer = models.TextField(blank=False)
     order = models.IntegerField()
 
     def __unicode__(self):

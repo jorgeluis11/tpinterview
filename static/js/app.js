@@ -1,4 +1,4 @@
-angular.module('starter', ['ngRoute', 'ui.ace'])
+angular.module('starter', ['ngRoute', 'ui.ace', 'angularSpinners'])
 .config(function($routeProvider, $interpolateProvider, $httpProvider) {
   $routeProvider
    .when('/language', {
