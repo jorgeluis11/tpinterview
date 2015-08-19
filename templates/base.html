@@ -18,16 +18,22 @@
     <meta property="og:description" content="Seleccion de vinos a la carta."/>
     <meta property="og:type" content="article"/>
     <meta property="og:image" content="{% static "" %}"/>
-    <script src="{% static 'js/vendor/jquery-2.1.4.js' %}"></script>
+    <script type="text/javascript" src="{% static "js/vendor/jquery-2.1.4.js" %}"></script>
 
-    <script src="{% static "js/vendor/angular.min.js" %}"></script>
-    <script src="{% static "js/vendor/angular-route.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/vendor/angular.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/vendor/angular-route.js" %}"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.11.0/ui-bootstrap.min.js"></script>
 
-    <script src="{% static "js/vendor/jquery-2.1.4.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/service/spinner-service.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/directive/spinner-directive.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/service/modal-service.js" %}"></script>
+
     <script type="text/javascript" src="{% static "js/app.js" %}"></script>
     <script type="text/javascript" src="{% static "js/controller/controller.js" %}"></script>
-    <script src="{% static 'js/vendor/ace/ace.js' %}"></script>
-    <script src="{% static 'js/vendor/ace/ui-ace.min.js' %}"></script>
+    <script type="text/javascript" src="{% static "js/directive/directive.js" %}"></script>
+
+    <script type="text/javascript" src="{% static "js/vendor/ace/ace.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/vendor/ace/ui-ace.min.js" %}"></script>
 
     {% block extra_head %}
         <!-- <meta property="og:title" content="."/>

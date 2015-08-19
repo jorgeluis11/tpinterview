@@ -1,4 +1,4 @@
-angular.module('starter', ['ngRoute', 'ui.ace'])
+angular.module('starter', ['ngRoute', 'ui.ace', 'angularSpinners', 'ui.splash'])
 .config(function($routeProvider, $interpolateProvider, $httpProvider) {
   $routeProvider
    .when('/language', {
@@ -46,4 +46,4 @@ angular.module('starter', ['ngRoute', 'ui.ace'])
 
     $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
 
-})
+});

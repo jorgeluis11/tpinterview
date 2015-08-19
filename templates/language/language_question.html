@@ -33,7 +33,7 @@
 					<h2 class="question-title text-center" >
 						{[{ $index + 1 }]}. {[{question.question}]}
 					</h2>
-					<div data-id="{[{questions.id}]}" ui-ace="{
+					<div data-id="{[{question.id}]}" data-order="{[{question.order}]}" ui-ace="{
 					  useWrapMode : true,
 					  showGutter: true,
 					  theme:'twilight',
@@ -42,11 +42,20 @@
 					<br>
 					<hr>
 				</div>
-				<button  ng-show="submitButton && nameInserted" submit class="btn btn-success btn-submit">Submit</button>
-
+				<button id="submit-answers" ng-show="submitButton && nameInserted" ng-click="submit()" data-test="{[{questions.id}]}" data-name="{[{nameText}]}" class="btn btn-success btn-submit">Submit</button>
 				<br>
 				<br>
 			</div>
 		</div>
 	</div>
+	  <div spinner name="postSpinner">
+	  <div class="spinner-container">
+	  	<div class="spinner">
+		  <div class="double-bounce1"></div>
+		  <div class="double-bounce2"></div>
+		</div>
+ 	</div>
+ </div>
+
+
 {% endblock %}
