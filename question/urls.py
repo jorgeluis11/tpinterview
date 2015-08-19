@@ -9,6 +9,8 @@ from .views import testList
 from .views import testCandidatesList
 from .views import user_login
 from .views import insert_question
+from .views import testCandidatesTestRetrieve
+# from .views import testCandidatesTestRetrieveToPDF
 
 
 urlpatterns = patterns('',
@@ -23,6 +25,10 @@ urlpatterns = patterns('',
         name='test-list'),
     url(r'^test/test_candidates_list.html/$', testCandidatesList,
         name='test-candidates-list'),
+    url(r'^test/test_candidates_retrieve.html/$', testCandidatesTestRetrieve,
+        name='test-candidates-retrieve'),
+    # url(r'^test/test_candidates_retrieve.html/$', testCandidatesTestRetrieveToPDF,
+    #     name='test-candidates-retrieve-PDF'),
     (r'^login/$', 'django.contrib.auth.views.login',
         {'template_name': 'login.html'}),
     (r'^login/validation$', user_login),

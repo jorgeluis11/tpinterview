@@ -1,15 +1,26 @@
+import reportlab
+import ast
+
 from django.shortcuts import render_to_response
 from django.shortcuts import HttpResponse
 from django.shortcuts import HttpResponseRedirect
-
+from django.http import HttpResponse
 
 from django.views.generic import TemplateView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate
 from django.contrib.auth import login
-import ast
-
 from django.template import RequestContext
+
+from reportlab.pdfgen import canvas
+
+#for PDF
+# import cStringIO as StringIO
+# import ho.pisa as pisa
+# from django.template.loader import get_template
+# from django.template import Context
+# from django.http import HttpResponse
+# from cgi import escape
 
 
 class index(TemplateView):
@@ -41,6 +52,34 @@ def testList(request):
 def testCandidatesList(request):
     return render_to_response("test/test_candidates_list.html", {})
 
+
+@login_required
+def testCandidatesTestRetrieve(request):
+    return render_to_response("test/test_candidates_retrieve.html", {})
+
+
+# def render_to_pdf(template_src, context_dict):
+#     template = get_template(template_src)
+#     context = Context(context_dict)
+#     html  = template.render(context)
+#     result = StringIO.StringIO()
+
+#     pdf = pisa.pisaDocument(StringIO.StringIO(html.encode("ISO-8859-1")), result)
+#     if not pdf.err:
+#         return HttpResponse(result.getvalue(), content_type='application/pdf')
+#     return HttpResponse('We had some errors<pre>%s</pre>' % escape(html))
+
+
+# @login_required
+# def testCandidatesTestRetrieveToPDF(request):
+#     #Retrieve data or whatever you need
+#     return render_to_pdf(
+#             'test/test_candidates_retrieve.html',
+#             {
+#                 'pagesize':'A4',
+#                 # 'mylist': results,
+#             }
+#         )
 
 def user_login(request):
     # Like before, obtain the context for the user's request.

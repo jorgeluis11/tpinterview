@@ -246,11 +246,28 @@ button, label, th{
 .test-language-list img{
     width: 30px;
     height: 30px;
+    margin-right: 6px;
 }
 
 .test-language-list p{
     margin-top: 5px;
     margin-bottom: 0px;
+}
+
+.table{
+    margin-top: 85px;
+}
+
+.answer-box{
+    padding: 25px;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    background-color: #F3F3F3;
+    box-shadow: 2px 2px 8px #ddd;
+}
+
+.nav-tabs>li>a:focus {
+    background-color: transparent;
 }
 
 /* Extra small devices (phones, less than 768px) */
@@ -274,6 +291,17 @@ button, label, th{
     #background-image {
         position: absolute;
     }
+
+    .language-box{
+        height: 114px;
+    }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 993px) {
+    .language-box{
+        height: 188px;
+    }
 }
 
 /* Large devices (large desktops, 1200px and up) */
@@ -281,8 +309,4 @@ button, label, th{
     #background-image {
         position: absolute;
     }
-}
-
-.table{
-    margin-top: 85px;
 }

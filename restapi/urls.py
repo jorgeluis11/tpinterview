@@ -8,6 +8,7 @@ from .views import ExamListAPI
 from .views import CandidatesListAPI
 from .views import AnswerInsertAPI
 from .views import CandidateInsertAPI
+from .views import ExamCandidateAnswersListAPI
 
 
 urlpatterns = patterns('',
@@ -19,6 +20,9 @@ urlpatterns = patterns('',
     url(r'^api/languages/(?P<language_slug>[\w-]+)/(?P<slug>[\w-]+)$',
         ExamRetrieveAPI.as_view(),
         name='api-exam-detail'),
+    url(r'^api/candidate/answers/$',
+        ExamCandidateAnswersListAPI.as_view(),
+        name='api-exam-answers-list'),
     url(r'^api/test/$',
         ExamListAPI.as_view(),
         name='api-exam-list'),

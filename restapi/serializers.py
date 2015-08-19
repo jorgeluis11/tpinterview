@@ -19,6 +19,7 @@ class ExamListSerializer(serializers.ModelSerializer):
 
 class QuestionListSerializer(serializers.ModelSerializer):
 
+
     class Meta:
         model = Question
         fields = ('id', 'question', 'order')
@@ -73,7 +74,7 @@ class CandidatesListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Candidate
-        fields = ('id', 'exam', 'name')
+        fields = ('id', 'exam', 'name', 'slug')
 
 
 class CandidateInsertSerializer(serializers.ModelSerializer):
@@ -83,8 +84,26 @@ class CandidateInsertSerializer(serializers.ModelSerializer):
         fields = ('id', 'exam', 'name')
 
 
+class AnswersSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Answer
+        fields = ('id', 'answer')
+
+
 class AnswerInsertSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Answer
-        fields = ('id', 'answer', 'order', 'question', 'candidate')
+        fields = ('id', 'answer', 'question', 'candidate')
+
+
+class ExamCandidateAnswersSerializer(serializers.ModelSerializer):
+    question = QuestionListSerializer()
+    candidate = CandidatesListSerializer()
+
+    class Meta:
+        model = Answer
+        fields = ('id', 'answer', 'question', 'candidate')
+
+

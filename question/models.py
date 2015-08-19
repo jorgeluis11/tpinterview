@@ -38,6 +38,7 @@ class Question(TimeStampedModel):
 class Candidate(TimeStampedModel):
     exam = models.ForeignKey(Exam)
     name = models.CharField(max_length=55, blank=False)
+    slug = AutoSlugField(populate_from='name', unique=True, max_length=50)
 
     def __unicode__(self):
         return self.name
@@ -47,8 +48,7 @@ class Candidate(TimeStampedModel):
 class Answer(TimeStampedModel):
     question = models.ForeignKey(Question)
     candidate = models.ForeignKey(Candidate)
-    answer = models.CharField(max_length=255, blank=False)
-    order = models.IntegerField()
+    answer = models.TextField(blank=False)
 
     def __unicode__(self):
         return self.answer

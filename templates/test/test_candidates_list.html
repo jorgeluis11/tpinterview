@@ -12,15 +12,15 @@
 		</tr>
 		<tr ng-repeat="candidate in candidates" class="test-language-list">
 			<td>
-				<img class="pull-left" ng-show="candidate.exam.language.name === 'C#'" ng-src="../static/img/cSharp.png" alt="" />
-				<img class="pull-left" ng-show="candidate.exam.language.name !== 'C#'" ng-src="../static/img/{[{candidate.exam.language.name|lowercase}]}.png" alt="" />
+				<img class="pull-left" ng-show="candidate.exam.language.slug === 'C#'" ng-src="../static/img/cSharp.png" alt="" />
+				<img class="pull-left" ng-show="candidate.exam.language.slug !== 'C#'" ng-src="../static/img/{[{candidate.exam.language.slug|lowercase}]}.png" alt="" />
 				<p class="pull-left">{[{ candidate.exam.language.name }]}</p>
 			</td>
 			<td><p>{[{ candidate.exam.name }]}</p></td>
 			<td><p>{[{ candidate.name }]}</p></td>
 			<td><p>{[{ candidate.exam.created_date }]}</p></td>
 			<td>
-				<a href="" class="btn btn-warning"><i class="glyphicon glyphicon-pencil"></i> View Test Results</a>
+				<a href="#/test/candidates/answers/?candidate={[{ candidate.slug }]}&exam={[{ candidate.exam.slug }]}" class="btn btn-warning"><i class="glyphicon glyphicon-pencil"></i> View Test Results</a>
 			</td>
 		</tr>
 	</table>

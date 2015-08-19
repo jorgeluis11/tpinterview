@@ -48,13 +48,12 @@ class CandidateAdmin(admin.ModelAdmin):
 
 
 class AnswerAdmin(admin.ModelAdmin):
-    fields = ('question', 'candidate', 'answer',
-              'order')
+    fields = ('question', 'candidate', 'answer')
     list_display = ('id', 'question', 'candidate',
-                    'answer', 'order')
+                    'answer')
     list_display_links = ['id', 'question',
                           'candidate']
-    list_filter = ['candidate', 'answer']
+    list_filter = ['candidate']
     search_fields = ['id', 'language']
 
 

@@ -12,8 +12,8 @@
 		</tr>
 		<tr ng-repeat="test in tests" class="test-language-list">
 			<td>
-				<img class="pull-left" ng-show="test.language.name === 'C#'" ng-src="../static/img/cSharp.png" alt="" />
-				<img class="pull-left" ng-show="test.language.name !== 'C#'" ng-src="../static/img/{[{test.language.name|lowercase}]}.png" alt="" />
+				<img class="pull-left" ng-show="test.language.slug === 'C#'" ng-src="../static/img/cSharp.png" alt="" />
+				<img class="pull-left" ng-show="test.language.slug !== 'C#'" ng-src="../static/img/{[{test.language.slug|lowercase}]}.png" alt="" />
 				<p class="pull-left">{[{ test.language.name }]}</p>
 			</td>
 			<td><p>{[{ test.name }]}</p></td>

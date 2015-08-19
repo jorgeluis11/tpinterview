@@ -60,6 +60,16 @@ angular.module("starter")
         $scope.submitButton = true;
     });
 
+}]).controller('testCandidatesTestRetrieveCtrl', ['$scope', '$routeParams', '$http', function ($scope, $routeParams, $http) {
+    //$($(".ace_identifier")[0]).html()
+    var url = ""
+    $scope.data = [];
+
+    var url = "api/candidate/answers/?candidate=" + $routeParams.candidate + "&exam=" + $routeParams.exam
+
+    $http.get(url).then(function(data){
+        $scope.data = data.data;
+    });
 }])
 
 
@@ -103,4 +113,13 @@ angular.module("starter")
         });
     }
 }
+}]).directive('textAreaDirective', [function () {
+      return {
+        restrict: 'A',
+        link: function (scope, element, attrs) {
+            element.click(function(){
+                $(this).height($(this).prop('scrollHeight'))
+            });
+        }
+    }
 }]);
