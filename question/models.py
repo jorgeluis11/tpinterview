@@ -48,7 +48,7 @@ class Candidate(TimeStampedModel):
 class Answer(TimeStampedModel):
     question = models.ForeignKey(Question)
     candidate = models.ForeignKey(Candidate)
-    answer = models.TextField(blank=False)
+    answer = models.TextField(blank=True)
 
     def __unicode__(self):
         return self.answer
