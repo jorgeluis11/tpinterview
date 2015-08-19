@@ -19,27 +19,40 @@ angular.module("starter")
         });
     }
 }
-}).directive('submit', ['$http','spinnerService', function ($http, spinnerService) {
+}).directive('submit', ['$http','spinnerService','$splashCongrats', function ($http, spinnerService, $splashCongrats) {
     return {
         restrict:"A",
         link:function (scope, element, attrs) {
-        
-        
         element.bind("click", function (event) {
-
             var aceCount = $("[ui-ace]");
             var aceText = aceCount.find(".ace_text-layer");
              if (aceCount.length === aceText.length) {
-                spinnerService.show('postSpinner');
                 var text = [];
 
+                var that = this;
+                // var empty = false;
+
+                // aceCount.each(function(i){
+                //   var text = ace.edit(aceCount[i]).getValue();
+                  // if (!text)
+                  //   {
+                  //     empty = true;
+                  //     return;
+                  //   }
+                // });
+
+                // if (empty) 
+                //   return;
+                spinnerService.show('postSpinner');
                 $http({
                    method: 'POST',
                    url: '/api/candidate/insert/',
-                   data: {"exam": attrs.id ,"name": scope.nameText},
+                   data: {exam: parseInt($("#submit-answers").data("test")) , name: $("#submit-answers").data("name")},
+                   async:false,
                     headers: {
                         'Content-Type': 'application/json'
                }}).success(function(data){
+                var counter = 0;
 
                  aceCount.each(function(i){
                     // text.push($(aceText[i]).html());
@@ -48,16 +61,20 @@ angular.module("starter")
                         $http({
                        method: 'POST',
                        url: '/api/answer/insert/',
+                       async:false,
                        data: {answer: text ,order: parseInt(aceElem.data("order")),
                               question: aceElem.data("id"), candidate: data.id},
                         headers: {
                             'Content-Type': 'application/json'
                        }}).success(function(data2){
-                        setTimeout(
-                        function() 
-                        {
-                            spinnerService.hide('postSpinner');
-                        }, 250);
+                        counter++;
+                        if(aceCount.length === counter){
+                          spinnerService.hide('postSpinner');
+                            $splashCongrats.open({
+                              // title: '',
+                              message: "Thanks for your time!"
+                            });
+                        }
                        })
                     });
                })
@@ -65,4 +82,15 @@ angular.module("starter")
         });
     }
 }
+}]).directive('finish', ['$location', function ($location) {
+  return {
+    restrict: 'A',
+    link: function (scope, element, attrs) {
+      element.bind('click', function(event) {
+        $location.path("/language");
+
+      });
+
+    }
+  };
 }]);

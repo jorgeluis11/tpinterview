@@ -16,8 +16,7 @@ angular.module("starter")
         $scope.exams = data.data;
     });
 
-}]).controller('questionCtrl', ['$scope', '$routeParams', '$http', function ($scope, $routeParams, $http) {
-    //$($(".ace_identifier")[0]).html()
+}]).controller('questionCtrl', ['$scope', '$routeParams', '$http', '$splash',function ($scope, $routeParams, $http, $splash) {
 
     $scope.questions = [];
     $scope.submitButton = false;
@@ -30,8 +29,14 @@ angular.module("starter")
         $scope.submitButton = true;
     });
 
+    $scope.submit = function(){
+        $splash.open({
+            // title: '',
+            message: "Are you sure you want to submit the test?"
+        });
+    }
 
-
+   
 }]).controller('testCtrl', ['$scope', '$routeParams', '$http', function ($scope, $routeParams, $http) {
     //$($(".ace_identifier")[0]).html()
 
@@ -59,5 +64,7 @@ angular.module("starter")
         $scope.candidates = data.data;
         $scope.submitButton = true;
     });
+
+    
 
 }]);

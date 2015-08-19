@@ -42,20 +42,20 @@
 					<br>
 					<hr>
 				</div>
-				<button  ng-show="submitButton && nameInserted" submit id="{[{questions.language.id}]}" name="{[{nameText}]}" class="btn btn-success btn-submit">Submit</button>
+				<button id="submit-answers" ng-show="submitButton && nameInserted" ng-click="submit()" data-test="{[{questions.id}]}" data-name="{[{nameText}]}" class="btn btn-success btn-submit">Submit</button>
 				<br>
 				<br>
 			</div>
 		</div>
 	</div>
-	  <spinner name="postSpinner">
+	  <div spinner name="postSpinner">
 	  <div class="spinner-container">
 	  	<div class="spinner">
 		  <div class="double-bounce1"></div>
 		  <div class="double-bounce2"></div>
 		</div>
  	</div>
- </spinner>
+ </div>
 
 
 {% endblock %}

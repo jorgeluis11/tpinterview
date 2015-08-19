@@ -297,8 +297,10 @@ button, label, th{
     position: fixed;
     width: 100%;
     height: 100%;
-    background-color:rgba(0,0,0,0.4);
+    background-color:rgba(0,0,0,0.85);
 }
+
+/*Loading css*/
 
 .spinner {
     position: fixed;
@@ -341,4 +343,131 @@ button, label, th{
     transform: scale(1.0);
     -webkit-transform: scale(1.0);
   }
+}
+
+/*Modal CSS*/
+.splash {
+    position: fixed;
+    background: rgba(0,0,0,0.85);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 500;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+    transition: opacity 0.5s, visibility 0s 0.5s;
+    -webkit-transition: opacity 0.5s, visibility 0s 0.5s;
+}
+ 
+.splash-open.splash {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: opacity 0.5s;
+    transition: opacity 0.5s;
+}
+ 
+.splash .splash-inner {
+    width: 100%;
+    height: 100%;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform: translate3d(0,0,150px);
+    transform: translate3d(0,0,150px);
+    -webkit-transition: -webkit-transform 0.5s;
+    transition: transform 0.5s;
+}
+ 
+ 
+.splash-open.splash .splash-inner {
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}
+ 
+.splash .splash-content {
+    width: 660px;
+    height: 350px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    margin: -175px 0 0 -330px;
+    color: #fff;
+    font-size: 18px;
+}
+
+
+/******************************************************
+    OUTLINE BUTTONS
+******************************************************/
+.btn.outline {
+    background: none;
+    padding: 12px 22px;
+}
+.btn-primary.outline {
+    border: 2px solid #0099cc;
+    color: #0099cc;
+}
+.btn-primary.outline:hover, .btn-primary.outline:focus, .btn-primary.outline:active, .btn-primary.outline.active, .open > .dropdown-toggle.btn-primary {
+    color: #33a6cc;
+    border-color: #33a6cc;
+}
+.btn-primary.outline:active, .btn-primary.outline.active {
+    border-color: #007299;
+    color: #007299;
+    box-shadow: none;
+}
+.btn-success.outline {
+    border: 2px solid #00bf6f;
+    color: #00bf6f;
+}
+.btn-success.outline:hover, .btn-success.outline:focus, .btn-success.outline:active, .btn-success.outline.active, .open > .dropdown-toggle.btn-success {
+    border-color: #39bf87;
+    color: #39bf87;
+}
+.btn-success.outline:active, .btn-success.outline.active {
+    border-color: #008c52;
+    color: #008c52;
+    box-shadow: none;
+}
+.btn-info.outline {
+    border: 2px solid #31cde8;
+    color: #31cde8;
+}
+.btn-info.outline:hover, .btn-info.outline:focus, .btn-info.outline:active, .btn-info.outline.active, .open > .dropdown-toggle.btn-info {
+    border-color: #5fd4e8;
+    color: #5fd4e8;
+}
+.btn-info.outline:active, .btn-info.outline.active {
+    border-color: #35a2b5;
+    color: #35a2b5;
+    box-shadow: none;
+}
+.btn-warning.outline {
+    border: 2px solid #eb8f34;
+    color: #eb8f34;
+}
+.btn-warning.outline:hover, .btn-warning.outline:focus, .btn-warning.outline:active, .btn-warning.outline.active, .open > .dropdown-toggle.btn-warning {
+    border-color: #eba259;
+    color: #eba259;
+}
+.btn-warning.outline:active, .btn-warning.outline.active {
+    border-color: #b87430;
+    color: #b87430;
+    box-shadow: none;
+}
+.btn-danger.outline {
+    border: 2px solid #f25454;
+    color: #f25454;
+}
+.btn-danger.outline:hover, .btn-danger.outline:focus, .btn-danger.outline:active, .btn-danger.outline.active, .open > .dropdown-toggle.btn-danger {
+    border-color: #f26d6d;
+    color: #f26d6d;
+}
+.btn-danger.outline:active, .btn-danger.outline.active {
+    border-color: #bf4343;
+    color: #bf4343;
+    box-shadow: none;
 }
