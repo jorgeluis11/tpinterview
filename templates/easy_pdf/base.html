@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>TP Interview{% block title %}{% endblock %}</title>
+    <meta property="og:site_name" content="Wines"/>
+    <meta property="og:description" content="Seleccion de vinos a la carta."/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:image" content="{% static "" %}"/>
+    <script type="text/javascript" src="{% static "js/vendor/jquery-2.1.4.js" %}"></script>
+
+    <script type="text/javascript" src="{% static "js/vendor/angular.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/vendor/angular-route.js" %}"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.11.0/ui-bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="{% static "js/service/spinner-service.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/directive/spinner-directive.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/service/modal-service.js" %}"></script>
+
+    <script type="text/javascript" src="{% static "js/app.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/controller/controller.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/directive/directive.js" %}"></script>
+
+    <script type="text/javascript" src="{% static "js/vendor/ace/ace.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/vendor/ace/ui-ace.min.js" %}"></script>
+
+    {% block extra_head %}
+        <!-- <meta property="og:title" content="."/>
+        <meta property="og:url" content="https://.com/"/> -->
+    {% endblock %}
+</head>
+<body>
+    {% block header %}
+        <nav id="header" class="navbar navbar-default" role="navigation">
+            <div class="tp-color-background"></div>
+            <div id="header-left" class="navbar-header">
+                 <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                     <span class="sr-only">Toggle navigation</span>
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href=""><img class="logo-img" src="{% static 'img/logo.png'%}"  alt=""></a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse header-right row">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li><a href=""><h3>Programming Languages</h3></a></li>
+                    <li><a href="/#/test/"><h3>Test List</h3></a></li>
+                </ul>
+            </div>
+        </nav>
+    {% endblock %}
+
+    {% block container %}
+        <div id="background-image">
+            <div class="container">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    {% endblock %}
+    
+    {% block extra_body %}{% endblock %}
+    
+    {% block footer %}
+        <!--     <div id="footer" class="text-center">
+        <p id="copyright">
+            Copyright © {% now "Y" %}. All rights reserved.
+        </p>
+    </div> -->
+    {% endblock %}
+        
+    <script src="{% static "js/vendor/bootstrap.min.js" %}"></script>
+    {% block js %}{% endblock %}
+
+    {% block extra_bottom %}{% endblock %}
+</body>
+</html>

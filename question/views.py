@@ -14,13 +14,7 @@ from django.template import RequestContext
 
 from reportlab.pdfgen import canvas
 
-#for PDF
-# import cStringIO as StringIO
-# import ho.pisa as pisa
-# from django.template.loader import get_template
-# from django.template import Context
-# from django.http import HttpResponse
-# from cgi import escape
+from easy_pdf.views import PDFTemplateView
 
 
 class index(TemplateView):
@@ -58,28 +52,9 @@ def testCandidatesTestRetrieve(request):
     return render_to_response("test/test_candidates_retrieve.html", {})
 
 
-# def render_to_pdf(template_src, context_dict):
-#     template = get_template(template_src)
-#     context = Context(context_dict)
-#     html  = template.render(context)
-#     result = StringIO.StringIO()
+class HelloPDFView(PDFTemplateView):
+    template_name = "easy_pdf/hello.html"
 
-#     pdf = pisa.pisaDocument(StringIO.StringIO(html.encode("ISO-8859-1")), result)
-#     if not pdf.err:
-#         return HttpResponse(result.getvalue(), content_type='application/pdf')
-#     return HttpResponse('We had some errors<pre>%s</pre>' % escape(html))
-
-
-# @login_required
-# def testCandidatesTestRetrieveToPDF(request):
-#     #Retrieve data or whatever you need
-#     return render_to_pdf(
-#             'test/test_candidates_retrieve.html',
-#             {
-#                 'pagesize':'A4',
-#                 # 'mylist': results,
-#             }
-#         )
 
 def user_login(request):
     # Like before, obtain the context for the user's request.

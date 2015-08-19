@@ -10,7 +10,7 @@ from .views import testCandidatesList
 from .views import user_login
 from .views import insert_question
 from .views import testCandidatesTestRetrieve
-# from .views import testCandidatesTestRetrieveToPDF
+from .views import HelloPDFView
 
 
 urlpatterns = patterns('',
@@ -27,8 +27,8 @@ urlpatterns = patterns('',
         name='test-candidates-list'),
     url(r'^test/test_candidates_retrieve.html/$', testCandidatesTestRetrieve,
         name='test-candidates-retrieve'),
-    # url(r'^test/test_candidates_retrieve.html/$', testCandidatesTestRetrieveToPDF,
-    #     name='test-candidates-retrieve-PDF'),
+    url(r"^hello.pdf$", HelloPDFView.as_view(),
+        name='hello'),
     (r'^login/$', 'django.contrib.auth.views.login',
         {'template_name': 'login.html'}),
     (r'^login/validation$', user_login),
