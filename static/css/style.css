@@ -276,9 +276,12 @@ button, label, th{
 /* Small devices (tablets, 768px and up) */
 @media (max-width: 767px) { 
     #navbar{
-        width: 100%;
         box-shadow: rgb(170, 170, 170) 0px 5px 8px;
         background-color: rgb(232, 232, 232);
+    }
+
+    .nav-tabs>li>a{
+        margin-right: 0px;
     }
 
     .nav > li{
