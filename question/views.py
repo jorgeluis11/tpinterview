@@ -53,8 +53,14 @@ def testCandidatesTestRetrieve(request):
 
 
 class HelloPDFView(PDFTemplateView):
-    template_name = "easy_pdf/hello.html"
+    template_name = "easy_pdf/test-candidate.html"
 
+    def get_context_data(self, **kwargs):
+        return super(HelloPDFView, self).get_context_data(
+        pagesize="A4",
+        title="Hi there!",
+        **kwargs
+    )
 
 def user_login(request):
     # Like before, obtain the context for the user's request.

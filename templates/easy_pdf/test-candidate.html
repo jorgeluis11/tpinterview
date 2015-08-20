@@ -1,8 +1,6 @@
-{% load static %}
+{% extends "easy_pdf/base.html" %}
 
-{% block extra_head %}
-	<link rel="stylesheet" type="text/css" href="{% static 'css/language_question.css' %}">
-{% endblock %}
+{% block header %} {% endblock %}
 
 {% block content %}
 	<div class="row">	
@@ -24,7 +22,6 @@
 					<br>
 					<hr>
 				</div>
-				<a submit class="btn btn-primary btn-submit" href="{% url 'test-candidate-pdf' %}" target="_blank">Convert to PDF</a>
 
 				<br>
 				<br>
@@ -32,16 +29,3 @@
 		</div>
 	</div>
 {% endblock %}
-
-{% block extra_bottom %}
-	<script>
-    $(function() {
-        $('text-area').each(function() {
-        	console.log("hello")
-            $(this).height($(this).prop('scrollHeight'));
-        });
-    });
-	</script>
-{% endblock %}
-
-
