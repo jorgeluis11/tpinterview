@@ -93,4 +93,54 @@ angular.module("starter")
 
     }
   };
+}])
+// .directive('ngEnter', function () {
+//     return {
+//         restrict:"A",
+//         link:function (scope, element, attrs) {
+//         element.bind("keydown keypress", function (event) {
+//             if(event.which === 13) {
+//                 scope.$apply(function (){
+//                     if (scope.nameText.trim()) 
+//                     {
+//                         $(".write-name-group").removeClass("animated").fadeOut(600,function(){
+//                             scope.nameInserted = true;
+//                             $(".exam-container").addClass("animated fadeInUpBig");                          
+//                         });
+//                     }
+//                 });
+//                 event.preventDefault();
+//             }
+//         });
+//     }
+// }
+// }).directive('submit', ['$http', function ($http) {
+//     return {
+//         restrict:"A",
+//         link:function (scope, element, attrs) {
+//         element.bind("click", function (event) {
+//             var aceCount = $("[ui-ace]");
+//             var aceText = aceCount.find(".ace_identifier");
+//              if (aceCount.length === aceText.length) {
+//                 var text = [];
+//                 aceText.each(function(i){
+//                     text.push($(aceText[i]).html());
+//                 })
+//                 // $http.post("/insert", {'answers[]': text}, function(data){
+//                 //     console.log(data);
+//                 // });
+//             };
+//         });
+//     }
+// }
+// }])
+.directive('aceText', [function () {
+      return {
+        restrict: 'A',
+        link: function (scope, element, attrs) {
+          ace.$blockScrolling = false;
+          ace.edit(element[0]).setValue(attrs.text);
+                $(this).height($(this).prop('scrollHeight'))
+        }
+    }
 }]);
