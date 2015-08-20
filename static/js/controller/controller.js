@@ -74,6 +74,16 @@ angular.module("starter")
     $http.get(url).then(function(data){
         $scope.data = data.data;
     });
+}]).controller('testCandidatesTestRetrievePDFCtrl', ['$scope', '$routeParams', '$http', function ($scope, $routeParams, $http) {
+    //$($(".ace_identifier")[0]).html()
+    var url = ""
+    $scope.data = [];
+
+    var url = "api/candidate/answers/?candidate=" + $routeParams.candidate + "&exam=" + $routeParams.exam
+
+    $http.get(url).then(function(data){
+        $scope.data = data.data;
+    });
 }])
 
 

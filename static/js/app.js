@@ -35,7 +35,7 @@ angular.module('starter', ['ngRoute', 'ui.ace', 'angularSpinners', 'ui.splash'])
   })
   .when('/test/candidate/answers/pdf/', {
     templateUrl: 'test-candidate.html',
-    controller: 'testCandidatesTestRetrieveCtrl',
+    controller: 'testCandidatesTestRetrievePDFCtrl',
   })
 
   .otherwise({ redirectTo: '/language' });

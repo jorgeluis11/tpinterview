@@ -5,6 +5,13 @@
 {% endblock %}
 
 {% block content %}
+<style>
+	textarea {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    resize: none;
+	}
+</style>
 	<div class="row">	
 	  	<div class="exam-container show">
 			<div class="exam-question-list" style="margin-top: 40px;">
@@ -31,17 +38,6 @@
 			</div>
 		</div>
 	</div>
-{% endblock %}
-
-{% block extra_bottom %}
-	<script>
-    $(function() {
-        $('text-area').each(function() {
-        	console.log("hello")
-            $(this).height($(this).prop('scrollHeight'));
-        });
-    });
-	</script>
 {% endblock %}
 
 
