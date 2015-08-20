@@ -16,18 +16,30 @@
 	  	<div class="exam-container show">
 			<div class="exam-question-list" style="margin-top: 40px;">
 				<h1  class="language-title-exam text-center">
-					Test Name: <span class="text-warning">{[{ data[0].candidate.exam.name }]}</span>
+					Test Name <span class="text-warning">{[{ data[0].candidate.exam.name }]}</span>
 				</h1>
-				<h1 class="text-center">Programming Language: <span class="text-success">{[{ data[0].candidate.exam.language.name }]}</span></h1>
-				<h2 class="text-center">Candidate Name:  <span class="text-primary">{[{ data[0].candidate.name }]}<span></h2>
+				<h1 class="text-center">Programming Language 
+				<br>
+				<span class="text-success">{[{ data[0].candidate.exam.language.name }]}</span></h1>
+				<h2 class="text-center">Candidate Name  
+				<br>
+				<span class="text-primary">{[{ data[0].candidate.name }]}<span></h2>
 				<h3 class="text-center"> {[{ data[0].questions.name }]}</h3>
+				
 				<div ng-repeat="answer in data | orderBy:'order'">
 					<h2 class="question-title text-center" >
 						{[{ $index + 1 }]}. {[{ answer.question.question }]}
 					</h2>
-					<div class="answer-box">
+					<!--<div class="answer-box">
 						<textarea class="form-control">{[{ answer.answer }]}</textarea>
-					</div>
+					</div>-->
+					<div  data-id="{[{question.id}]}" data-order="{[{question.order}]}" ui-ace="{
+					  useWrapMode : true,
+					  showGutter: true,
+					  theme:'twilight',
+					  onLoad : aceLoaded,
+					  mode: '{[{ data[0].candidate.exam.language.name | lowercase}]}'
+					}" ace-text text="{[{answer.answer}]}"></div>
 					<br>
 					<hr>
 				</div>
