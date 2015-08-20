@@ -33,6 +33,10 @@ angular.module('starter', ['ngRoute', 'ui.ace', 'angularSpinners', 'ui.splash'])
     templateUrl: '/test/test_candidates_retrieve.html',
     controller: 'testCandidatesTestRetrieveCtrl',
   })
+  .when('/test/candidate/answers/pdf/', {
+    templateUrl: 'test-candidate.html',
+    controller: 'testCandidatesTestRetrieveCtrl',
+  })
 
   .otherwise({ redirectTo: '/language' });
 

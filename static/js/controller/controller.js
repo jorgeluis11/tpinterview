@@ -92,6 +92,3 @@ angular.module("starter")
         // _session.on("change", function(){ ... });
       };
 }]);
-
-
-

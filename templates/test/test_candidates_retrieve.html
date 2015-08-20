@@ -26,7 +26,6 @@
 					<!--<div class="answer-box">
 						<textarea class="form-control">{[{ answer.answer }]}</textarea>
 					</div>-->
-					{[{ data[0].candidate.exam.language.name }]}
 					<div  data-id="{[{question.id}]}" data-order="{[{question.order}]}" ui-ace="{
 					  useWrapMode : true,
 					  showGutter: true,
@@ -37,7 +36,7 @@
 					<br>
 					<hr>
 				</div>
-				<a submit class="btn btn-primary btn-submit" href="{% url 'hello' %}" target="_blank">Convert to PDF</a>
+				<a submit class="btn btn-primary btn-submit" href="{% url 'test-candidate-pdf' %}" target="_blank">Convert to PDF</a>
 
 				<br>
 				<br>
