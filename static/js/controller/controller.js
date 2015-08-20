@@ -64,6 +64,7 @@ angular.module("starter")
         $scope.candidates = data.data;
         $scope.submitButton = true;
     });
+
 }]).controller('testCandidatesTestRetrieveCtrl', ['$scope', '$routeParams', '$http', function ($scope, $routeParams, $http) {
     //$($(".ace_identifier")[0]).html()
     var url = ""
@@ -73,7 +74,23 @@ angular.module("starter")
 
     $http.get(url).then(function(data){
         $scope.data = data.data;
-    });
+    });    
+    console.log("SDf");
+
+     $scope.aceLoaded = function(_editor){
+        // Editor part
+        var _session = _editor.getSession();
+        var _renderer = _editor.renderer;
+
+        // Options
+        _editor.setReadOnly(true);
+        _session.setUndoManager(new ace.UndoManager());
+        // _renderer.setShowGutter(false);
+
+        // Events
+        // _editor.on("changeSession", function(){ ... });
+        // _session.on("change", function(){ ... });
+      };
 }]);
 
 

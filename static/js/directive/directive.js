@@ -139,8 +139,23 @@ angular.module("starter")
         restrict: 'A',
         link: function (scope, element, attrs) {
           ace.$blockScrolling = false;
-          ace.edit(element[0]).setValue(attrs.text);
-                $(this).height($(this).prop('scrollHeight'))
+          var editor = ace.edit(element[0]);
+          editor.setValue(attrs.text, -1);
+
+          var newHeight =
+                  editor.getSession().getScreenLength()
+                  * editor.renderer.lineHeight
+                  + editor.renderer.scrollBar.getWidth();
+
+        $(element[0]).height(newHeight.toString() + "px");
+        $('.ace_layer.ace_gutter-layer.ace_folding-enabled').height(newHeight.toString() + "px");
+        $('.ace_content').height(newHeight.toString() + "px");
+
+
+
+        // This call is required for the editor to fix all of
+        // its inner structure for adapting to a change in size
+        editor.resize();
         }
     }
 }]);
