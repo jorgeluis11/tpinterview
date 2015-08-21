@@ -271,6 +271,12 @@ button, label, th{
     background-color: transparent;
 }
 
+.divider{
+    margin-bottom: 50px;
+    margin-top: 20px;
+    border-bottom: 1px dotted #ddd;
+}
+
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
 

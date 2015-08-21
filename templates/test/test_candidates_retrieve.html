@@ -5,13 +5,13 @@
 {% endblock %}
 
 {% block content %}
-<style>
-	textarea {
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    resize: none;
-	}
-</style>
+	<style>
+		textarea {
+	    -moz-box-sizing: border-box;
+	    box-sizing: border-box;
+	    resize: none;
+		}
+	</style>
 	<div class="row">	
 	  	<div class="test-container show">
 			<div class="test-question-list" style="margin-top: 40px;">
@@ -24,6 +24,7 @@
 				<h2 class="text-center">Candidate Name  
 				<br>
 				<span class="text-primary">{[{ data[0].candidate.name }]}<span></h2>
+				<div class="divider"></div>
 				<div ng-repeat="answer in data | orderBy:'question.order'">
 					<h2 class="question-title text-center" >
 						{[{ $index + 1 }]}. {[{ answer.question.question }]}
