@@ -36,6 +36,21 @@ angular.module("starter")
         });
     }
 
+     $scope.aceLoaded = function(_editor){
+        // Editor part
+        var _session = _editor.getSession();
+        var _renderer = _editor.renderer;
+
+        // Options
+        _session.setUndoManager(new ace.UndoManager());
+        _editor.getSession().setUseWorker(false);
+        // _renderer.setShowGutter(false);
+
+        // Events
+        // _editor.on("changeSession", function(){ ... });
+        // _session.on("change", function(){ ... });
+      };
+
    
 }]).controller('testCtrl', ['$scope', '$routeParams', '$http', function ($scope, $routeParams, $http) {
     //$($(".ace_identifier")[0]).html()
@@ -85,6 +100,7 @@ angular.module("starter")
         // Options
         _editor.setReadOnly(true);
         _session.setUndoManager(new ace.UndoManager());
+        _editor.getSession().setUseWorker(false);
         // _renderer.setShowGutter(false);
 
         // Events

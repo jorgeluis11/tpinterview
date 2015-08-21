@@ -36,7 +36,6 @@ INSTALLED_APPS = (
 
     'easy_pdf',
     'rest_framework',
-
     'core',
     'question',
     'restapi',

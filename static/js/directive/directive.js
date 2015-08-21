@@ -9,8 +9,8 @@ angular.module("starter")
                     if (scope.nameText.trim()) 
                     {
                         $(".write-name-group").removeClass("animated").fadeOut(600,function(){
-                            scope.nameInserted = true;
-                            $(".exam-container").addClass("animated fadeInUpBig");                          
+                            // scope.nameInserted = true;
+                            $(".test-container").addClass("animated fadeInUpBig").show();                          
                         });
                     }
                 });
