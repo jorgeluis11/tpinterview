@@ -40,7 +40,7 @@
 					<br>
 					<hr>
 				</div>
-				<a submit class="hidden-print btn btn-primary btn-submit" href="{% url 'test-candidate-pdf' %}?candidate={[{ data[0].candidate.slug }]}&exam={[{ data[0].candidate.exam.slug }]}" target="_blank">Convert to PDF</a>
+				<a submit class="hidden-print btn btn-primary btn-submit" href="{% url 'test-candidate-pdf' %}?candidate={[{ data[0].candidate.slug }]}&test={[{ data[0].candidate.test.slug }]}" target="_blank">Convert to PDF</a>
 
 				<br>
 				<br>

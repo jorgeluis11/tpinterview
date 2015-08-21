@@ -58,13 +58,11 @@ class HelloPDFView(PDFTemplateView):
 
     def get_context_data(self, **kwargs):
         candidate = self.request.GET.get("candidate")
-        test = self.request.GET.get('exam')
-        answers = Answer.objects.filter(candidate__slug=candidate, question__exam__slug=test).order_by('question__order')
+        test = self.request.GET.get('test')
+        answers = Answer.objects.filter(candidate__slug=candidate,
+                                        question__test__slug=test).order_by('question__order')
         return super(HelloPDFView, self).get_context_data(
-        pagesize="A4",
-        title="Hi there!",
-        answers=answers,
-        **kwargs)
+                     answers=answers, **kwargs)
 
 def user_login(request):
     # Like before, obtain the context for the user's request.
