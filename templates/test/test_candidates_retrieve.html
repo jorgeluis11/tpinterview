@@ -24,7 +24,6 @@
 				<h2 class="text-center">Candidate Name  
 				<br>
 				<span class="text-primary">{[{ data[0].candidate.name }]}<span></h2>
-				<h3 class="text-center"> {[{ data[0].questions.name }]}</h3>
 				
 				<div ng-repeat="answer in data | orderBy:'order'">
 					<h2 class="question-title text-center" >
@@ -43,7 +42,7 @@
 					<br>
 					<hr>
 				</div>
-				<a submit class="btn btn-primary btn-submit" href="{% url 'test-candidate-pdf' %}" target="_blank">Convert to PDF</a>
+				<a submit class="hidden-print btn btn-primary btn-submit" href="{% url 'test-candidate-pdf' %}?candidate={[{ data[0].candidate.slug }]}&exam={[{ data[0].candidate.exam.slug }]}" target="_blank">Convert to PDF</a>
 
 				<br>
 				<br>

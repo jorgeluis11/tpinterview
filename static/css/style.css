@@ -180,6 +180,7 @@ button, label, th{
     height: 77px;
     box-shadow: 0px 5px 8px #aaa;
     z-index: 1000;
+    border: none;
 }
 
 .tp-color-background{

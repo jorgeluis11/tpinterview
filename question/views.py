@@ -12,8 +12,9 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import login
 from django.template import RequestContext
 
-from reportlab.pdfgen import canvas
+from .models import Answer
 
+from reportlab.pdfgen import canvas
 from easy_pdf.views import PDFTemplateView
 
 
@@ -56,11 +57,14 @@ class HelloPDFView(PDFTemplateView):
     template_name = "easy_pdf/test-candidate.html"
 
     def get_context_data(self, **kwargs):
+        candidate = self.request.GET.get("candidate")
+        test = self.request.GET.get('exam')
+        answers = Answer.objects.filter(candidate__slug=candidate, question__exam__slug=test).order_by('question__order')
         return super(HelloPDFView, self).get_context_data(
         pagesize="A4",
         title="Hi there!",
-        **kwargs
-    )
+        answers=answers,
+        **kwargs)
 
 def user_login(request):
     # Like before, obtain the context for the user's request.

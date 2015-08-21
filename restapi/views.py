@@ -72,6 +72,8 @@ class ExamListAPI(generics.ListAPIView):
 class CandidatesListAPI(generics.ListAPIView):
     serializer_class = CandidatesListSerializer
     queryset = Candidate.objects.filter()
+    filter_backends = (filters.OrderingFilter,)
+    ordering = ('created_date',)
 
 
 class CandidateInsertAPI(generics.CreateAPIView):

@@ -1,7 +1,7 @@
 {% block content %}
 	<h1 id="language-title">{[{exams.name | uppercase}]}</h1>
 	<div class="row">	
-		<a ng-href="#/language/{[{exams.name | lowercase}]}/{[{exam.slug}]}" ng-repeat="exam in exams.exam" class="col-sm-3 col-xs-12 language animated zoomInDown">
+		<a ng-href="#/language/{[{exams.slug}]}/{[{exam.slug}]}" ng-repeat="exam in exams.exam" class="col-sm-3 col-xs-12 language animated zoomInDown">
 			<div>
 				<img src="../static/img/exam.png" alt="" class="img-responsive" />
 			</div>

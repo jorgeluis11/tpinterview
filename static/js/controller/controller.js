@@ -60,7 +60,7 @@ angular.module("starter")
     $scope.nameInserted = false;
     $scope.name = "";
 
-    $http.get("api/candidate/list/").then(function(data){
+    $http.get("api/candidate/list/?ordering=" + $routeParams.ordering).then(function(data){
         $scope.candidates = data.data;
         $scope.submitButton = true;
     });

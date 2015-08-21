@@ -2,30 +2,80 @@
 
 {% block header %} {% endblock %}
 
+{% block extra_head %}
+	<style>
+		 .question-title{
+		    color: #222222;
+		    line-height: 26px;
+		    margin: 20px 0;
+		}
+
+		.exam-container{
+		    /*display: none;*/
+		}
+
+		.language-title-exam{
+		    margin: 15px 0;
+		    font-size: 30px;
+		    text-decoration: underline;
+		}
+
+		.answer-box{
+		    padding: 25px;
+		    border: 1px solid #eee;
+		    border-radius: 20px;
+		    background-color: #F3F3F3;
+		    box-shadow: 2px 2px 8px #ddd;
+		}
+
+		.text-success{
+			color: #3C763D;
+		}
+
+		.text-primary{
+			color: #428BCA;
+		}
+
+		.text-warning{
+			color: #8A6D3B;
+		}
+
+		.text-center{
+			text-align: center;
+		}
+	</style>
+{% endblock %}
+
 {% block content %}
 	<div class="row">	
 	  	<div class="exam-container show">
 			<div class="exam-question-list" style="margin-top: 40px;">
 				<h1  class="language-title-exam text-center">
-					Test Name: <span class="text-warning">{[{ data[0].candidate.exam.name }]}</span>
+					Test Name <span class="text-warning">{{ answers.0.candidate.exam.name }}</span>
 				</h1>
-				<h1 class="text-center">Programming Language: <span class="text-success">{[{ data[0].candidate.exam.language.name }]}</span></h1>
-				<h2 class="text-center">Candidate Name:  <span class="text-primary">{[{ data[0].candidate.name }]}<span></h2>
-				<h3 class="text-center"> {[{ data[0].questions.name }]}</h3>
-				<div ng-repeat="answer in data | orderBy:'order'">
-					<h2 class="question-title text-center" >
-						{[{ $index + 1 }]}. {[{ answer.question.question }]}
-					</h2>
-					<div class="answer-box">
-						<textarea class="form-control">{[{ answer.answer }]}</textarea>
+				<h1 class="text-center programming-language">Programming Language 
+				<br>
+				<span class="text-success">{{ answers.0.candidate.exam.language.name }}</span></h1>
+				<h1 class="text-center">Candidate Name  
+				<br>
+				<span class="text-primary">{{ answers.0.candidate.name }}<span></h1>
+				
+
+				{% for answer in answers %}
+					<div>
+						<h2 class="question-title text-center" >
+							{{ forloop.counter }}. {{ answer.question.question }}
+						</h2>
+						<div class="answer-box">
+							<textarea class="form-control">{{ answer }}</textarea>
+						</div>
+						<br>
+						<hr>
 					</div>
 					<br>
-					<hr>
+					<br>
 				</div>
-
-				<br>
-				<br>
-			</div>
+			{% endfor %}
 		</div>
 	</div>
 {% endblock %}

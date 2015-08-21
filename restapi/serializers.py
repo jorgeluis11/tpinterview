@@ -47,12 +47,11 @@ class LanguageRetrieveSerializer(serializers.ModelSerializer):
 
 class ExamListSerializer(serializers.ModelSerializer):
     language = LanguageListSerializer()
-    created_date = serializers.DateTimeField(format='%m/%d/%Y')
+    created_date = serializers.DateTimeField(format='%m/%d/%Y %H:%M')
 
     class Meta:
         model = Exam
-        fields = ('id', 'name', 'slug', 'language',
-                  'created_date')
+        fields = ('id', 'name', 'slug', 'language', 'created_date')
 
 
 class ExamRetrieveSerializer(serializers.ModelSerializer):
@@ -71,10 +70,11 @@ class ExamRetrieveSerializer(serializers.ModelSerializer):
 
 class CandidatesListSerializer(serializers.ModelSerializer):
     exam = ExamListSerializer()
+    created_date = serializers.DateTimeField(format='%m/%d/%Y %H:%M')
 
     class Meta:
         model = Candidate
-        fields = ('id', 'exam', 'name', 'slug')
+        fields = ('id', 'exam', 'name', 'slug', 'created_date')
 
 
 class CandidateInsertSerializer(serializers.ModelSerializer):
