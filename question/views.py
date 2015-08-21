@@ -17,14 +17,15 @@ from .models import Answer
 from reportlab.pdfgen import canvas
 from easy_pdf.views import PDFTemplateView
 
-
-class index(TemplateView):
-    login_required = True
-    template_name = 'index.html'
-
+@login_required
+def index(request):
+    return render_to_response("index.html", {})
 
 @login_required
 def languages(request):
+    # if not request.user.is_authenticated():
+    #     return HttpResponseRedirect('/login')
+    # else:
     return render_to_response("language/language_list.html", {})
 
 
@@ -63,6 +64,9 @@ class HelloPDFView(PDFTemplateView):
                                         question__test__slug=test).order_by('question__order')
         return super(HelloPDFView, self).get_context_data(
                      answers=answers, **kwargs)
+
+def user_login_redirect(request):
+    return HttpResponseRedirect('/login')
 
 def user_login(request):
     # Like before, obtain the context for the user's request.
