@@ -1,1 +1,1 @@
--r tpinterview/requirements/dev.txt
+-r tpinterview/requirements/prod.txt
