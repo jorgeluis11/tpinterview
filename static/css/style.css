@@ -328,6 +328,10 @@ button, label, th{
     box-shadow: 2px 2px 8px #ddd;
 }
 
+.navbar{
+    margin-bottom: 0px !important;
+}
+
 .nav-tabs>li>a:focus {
     background-color: transparent;
 }
