@@ -9,22 +9,20 @@ angular.module("starter")
 
 
 }])
-.controller('examCtrl', ['$scope', '$routeParams', '$http', function ($scope, $routeParams, $http) {
-    $scope.exams = [];
+.controller('testCtrl', ['$scope', '$routeParams', '$http', function ($scope, $routeParams, $http) {
+    $scope.tests = [];
 
     $http.get("/api/languages/"+$routeParams.languageSlug).then(function(data){
-        $scope.exams = data.data;
+        $scope.tests = data.data;
     });
 
 }]).controller('questionCtrl', ['$scope', '$routeParams', '$http', '$splash',function ($scope, $routeParams, $http, $splash) {
 
     $scope.questions = [];
     $scope.submitButton = false;
-
-    $scope.nameInserted = false;
     $scope.name = "";
 
-    $http.get("/api/languages/"+$routeParams.languageSlug+"/"+$routeParams.examSlug).then(function(data){
+    $http.get("/api/languages/"+$routeParams.languageSlug+"/"+$routeParams.testSlug).then(function(data){
         $scope.questions = data.data;
         $scope.submitButton = true;
     });
@@ -36,8 +34,23 @@ angular.module("starter")
         });
     }
 
+     $scope.aceLoaded = function(_editor){
+        // Editor part
+        var _session = _editor.getSession();
+        var _renderer = _editor.renderer;
+
+        // Options
+        _session.setUndoManager(new ace.UndoManager());
+        _editor.getSession().setUseWorker(false);
+        // _renderer.setShowGutter(false);
+
+        // Events
+        // _editor.on("changeSession", function(){ ... });
+        // _session.on("change", function(){ ... });
+      };
+
    
-}]).controller('testCtrl', ['$scope', '$routeParams', '$http', function ($scope, $routeParams, $http) {
+}]).controller('testListCtrl', ['$scope', '$routeParams', '$http', function ($scope, $routeParams, $http) {
     //$($(".ace_identifier")[0]).html()
 
     $scope.tests = [];
@@ -70,7 +83,7 @@ angular.module("starter")
     var url = ""
     $scope.data = [];
 
-    var url = "api/candidate/answers/?candidate=" + $routeParams.candidate + "&exam=" + $routeParams.exam
+    var url = "api/candidate/answers/?candidate=" + $routeParams.candidate + "&test=" + $routeParams.test
 
     $http.get(url).then(function(data){
         $scope.data = data.data;
@@ -84,6 +97,7 @@ angular.module("starter")
         // Options
         _editor.setReadOnly(true);
         _session.setUndoManager(new ace.UndoManager());
+        _editor.getSession().setUseWorker(false);
         // _renderer.setShowGutter(false);
 
         // Events
@@ -95,60 +109,9 @@ angular.module("starter")
     var url = ""
     $scope.data = [];
 
-    var url = "api/candidate/answers/?candidate=" + $routeParams.candidate + "&exam=" + $routeParams.exam
+    var url = "api/candidate/answers/?candidate=" + $routeParams.candidate + "&test=" + $routeParams.test
 
     $http.get(url).then(function(data){
         $scope.data = data.data;
     });
-}])
-
-
-.directive('ngEnter', function () {
-    return {
-        restrict:"A",
-        link:function (scope, element, attrs) {
-        element.bind("keydown keypress", function (event) {
-            if(event.which === 13) {
-                scope.$apply(function (){
-                    if (scope.nameText.trim()) 
-                    {
-                        $(".write-name-group").removeClass("animated").fadeOut(600,function(){
-                            scope.nameInserted = true;
-                            $(".exam-container").addClass("animated fadeInUpBig");                          
-                        });
-                    }
-                });
-                event.preventDefault();
-            }
-        });
-    }
-}
-}).directive('submit', ['$http', function ($http) {
-    return {
-        restrict:"A",
-        link:function (scope, element, attrs) {
-        element.bind("click", function (event) {
-            var aceCount = $("[ui-ace]");
-            var aceText = aceCount.find(".ace_identifier");
-             if (aceCount.length === aceText.length) {
-                var text = [];
-                aceText.each(function(i){
-                    text.push($(aceText[i]).html());
-                })
-                // $http.post("/insert", {'answers[]': text}, function(data){
-                //     console.log(data);
-                // });
-            };
-        });
-    }
-}
-}]).directive('textAreaDirective', [function () {
-      return {
-        restrict: 'A',
-        link: function (scope, element, attrs) {
-            element.click(function(){
-                $(this).height($(this).prop('scrollHeight'))
-            });
-        }
-    }
 }]);

@@ -1,11 +1,11 @@
 {% block content %}
-	<h1 id="language-title">{[{exams.name | uppercase}]}</h1>
+	<h1 id="language-title">{[{tests.name | uppercase}]}</h1>
 	<div class="row">	
-		<a ng-href="#/language/{[{exams.slug}]}/{[{exam.slug}]}" ng-repeat="exam in exams.exam" class="col-sm-3 col-xs-12 language animated zoomInDown">
+		<a ng-href="#/language/{[{tests.name | lowercase}]}/{[{test.slug}]}" ng-repeat="test in tests.test" class="col-sm-3 col-xs-12 language animated zoomInDown">
 			<div>
-				<img src="../static/img/exam.png" alt="" class="img-responsive" />
+				<img src="../static/img/test.png" alt="" class="img-responsive" />
 			</div>
-			<h3>{[{exam.name}]}</h3>
+			<h3>{[{test.name}]}</h3>
 		</a>
 	</div>
 {% endblock %}

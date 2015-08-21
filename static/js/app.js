@@ -15,15 +15,15 @@ angular.module('starter', ['ngRoute', 'ui.ace', 'angularSpinners', 'ui.splash'])
   })
   .when('/language/:languageSlug', {
     templateUrl: '/language/language_detail.html',
-    controller: 'examCtrl',
+    controller: 'testCtrl',
   })
-  .when('/language/:languageSlug/:examSlug', {
+  .when('/language/:languageSlug/:testSlug', {
     templateUrl: '/language/language_question.html',
     controller: 'questionCtrl',
   })
   .when('/test/', {
     templateUrl: '/test/test_list.html',
-    controller: 'testCtrl',
+    controller: 'testListCtrl',
   })
   .when('/test/candidates/', {
     templateUrl: '/test/test_candidates_list.html',

@@ -7,7 +7,7 @@ class APIRoot(APIView):
     def get(self, request):
         return Response({
             'language': reverse('api-language-list', request=request),
-            'candidate-answers': reverse('api-exam-answers-list', request=request),
-            'test-list': reverse('api-exam-list', request=request),
+            'candidate-answers': reverse('api-test-answers-list', request=request),
+            'test-list': reverse('api-test-list', request=request),
             'candidates-list': reverse('api-candidates-list', request=request),
         })

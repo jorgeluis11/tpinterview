@@ -5,28 +5,28 @@ from rest_framework import filters
 from rest_framework import generics
 
 from question.models import Language
-from question.models import Exam
+from question.models import Test
 from question.models import Answer
 from question.models import Candidate
 from .serializers import LanguageListSerializer
 from .serializers import LanguageRetrieveSerializer
-from .serializers import ExamRetrieveSerializer
-from .serializers import ExamListSerializer
+from .serializers import TestRetrieveSerializer
+from .serializers import TestListSerializer
 from .serializers import CandidatesListSerializer
 from .serializers import AnswerInsertSerializer
 from .serializers import CandidateInsertSerializer
-from .serializers import ExamCandidateAnswersSerializer
+from .serializers import TestCandidateAnswersSerializer
 
 class AnswerFilter(django_filters.FilterSet):
     """
-    Filter Answer by exam and candidate
+    Filter Answer by Test and candidate
     """
-    exam = django_filters.CharFilter(name="question__exam__slug")
+    test = django_filters.CharFilter(name="question__test__slug")
     candidate = django_filters.CharFilter(name="candidate__slug")
 
     class Meta:
         model = Answer
-        fields = ['exam', 'candidate']
+        fields = ['test', 'candidate']
 
 
 class LanguageListAPI(generics.ListAPIView):
@@ -40,13 +40,13 @@ class LanguageRetrieveAPI(generics.RetrieveAPIView):
     lookup_field = 'slug'
 
 
-class ExamRetrieveAPI(generics.RetrieveAPIView):
-    serializer_class = ExamRetrieveSerializer
-    queryset = Exam.objects.filter(status=True)
+class TestRetrieveAPI(generics.RetrieveAPIView):
+    serializer_class = TestRetrieveSerializer
+    queryset = Test.objects.filter(status=True)
     lookup_field = 'slug'
 
 
-class ExamCandidateAnswersListAPI(generics.ListAPIView):
+class TestCandidateAnswersListAPI(generics.ListAPIView):
     """
     # Retrieves a list of all Answers
     ---
@@ -54,19 +54,19 @@ class ExamCandidateAnswersListAPI(generics.ListAPIView):
     > Filters by test slug and candidate slug
 
     - ####Examples:
-        *  #####Filter by test: [?exam=beginner-stuff](?exam=beginner-stuff)
+        *  #####Filter by test: [?test=beginner-stuff](?test=beginner-stuff)
         *  #####Filter by candidate: [?candidate=Wifi](?candidate=Wifi)
     ---
     """
-    serializer_class = ExamCandidateAnswersSerializer
+    serializer_class = TestCandidateAnswersSerializer
     queryset = Answer.objects.filter()
     filter_backends = (filters.DjangoFilterBackend,)
     filter_class = AnswerFilter
 
 
-class ExamListAPI(generics.ListAPIView):
-    serializer_class = ExamListSerializer
-    queryset = Exam.objects.filter(status=True)
+class TestListAPI(generics.ListAPIView):
+    serializer_class = TestListSerializer
+    queryset = Test.objects.filter(status=True)
 
 
 class CandidatesListAPI(generics.ListAPIView):

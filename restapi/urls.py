@@ -3,12 +3,12 @@ from django.conf.urls import url
 
 from .views import LanguageListAPI
 from .views import LanguageRetrieveAPI
-from .views import ExamRetrieveAPI
-from .views import ExamListAPI
+from .views import TestRetrieveAPI
+from .views import TestListAPI
 from .views import CandidatesListAPI
 from .views import AnswerInsertAPI
 from .views import CandidateInsertAPI
-from .views import ExamCandidateAnswersListAPI
+from .views import TestCandidateAnswersListAPI
 
 
 urlpatterns = patterns('',
@@ -18,14 +18,14 @@ urlpatterns = patterns('',
         LanguageRetrieveAPI.as_view(),
         name='api-language-detail'),
     url(r'^api/languages/(?P<language_slug>[\w-]+)/(?P<slug>[\w-]+)$',
-        ExamRetrieveAPI.as_view(),
-        name='api-exam-detail'),
+        TestRetrieveAPI.as_view(),
+        name='api-test-detail'),
     url(r'^api/candidate/answers/$',
-        ExamCandidateAnswersListAPI.as_view(),
-        name='api-exam-answers-list'),
+        TestCandidateAnswersListAPI.as_view(),
+        name='api-test-answers-list'),
     url(r'^api/test/$',
-        ExamListAPI.as_view(),
-        name='api-exam-list'),
+        TestListAPI.as_view(),
+        name='api-test-list'),
     url(r'^api/candidate/list/$',
         CandidatesListAPI.as_view(),
         name='api-candidates-list'),
@@ -34,5 +34,5 @@ urlpatterns = patterns('',
         name='api-candidates-insert'),
     url(r'^api/answer/insert/$',
         AnswerInsertAPI.as_view(),
-        name='api-exam-insert'),
+        name='api-test-insert'),
 )

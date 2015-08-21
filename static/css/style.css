@@ -145,8 +145,8 @@ button, label, th{
     font-family:  helvetica, arial;
 }
 
-.exam-container{
-    /*display: none;*/
+.test-container{
+    display: none;
 }
 .keep-calm{
     font-family: 'keepcalm', helvetica, arial;
@@ -164,7 +164,7 @@ button, label, th{
     margin-bottom: 15px;
 }
 
-.language-title-exam{
+.language-title-test{
     margin: 15px 0;
     font-size: 3.5em;
     text-decoration: underline;
@@ -441,14 +441,20 @@ button, label, th{
 .btn-primary.outline {
     border: 2px solid #0099cc;
     color: #0099cc;
+     -webkit-transition: .25s ease;
+       -moz-transition: .25s  ease;
+        -ms-transition: .25s  ease;
+         -o-transition: .25s  ease;
+            transition: .25s  ease;
 }
 .btn-primary.outline:hover, .btn-primary.outline:focus, .btn-primary.outline:active, .btn-primary.outline.active, .open > .dropdown-toggle.btn-primary {
-    color: #33a6cc;
+    color: white;
     border-color: #33a6cc;
+    background-color:rgba(0,153,204,0.4);
 }
 .btn-primary.outline:active, .btn-primary.outline.active {
     border-color: #007299;
-    color: #007299;
+    color: white;
     box-shadow: none;
 }
 .btn-success.outline {
