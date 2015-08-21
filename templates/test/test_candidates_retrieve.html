@@ -13,20 +13,19 @@
 	}
 </style>
 	<div class="row">	
-	  	<div class="exam-container show">
-			<div class="exam-question-list" style="margin-top: 40px;">
-				<h1  class="language-title-exam text-center">
-					Test Name <span class="text-warning">{[{ data[0].candidate.exam.name }]}</span>
+	  	<div class="test-container show">
+			<div class="test-question-list" style="margin-top: 40px;">
+				<h1  class="language-title-test text-center">
+					Test Name <span class="text-warning">{[{ data[0].candidate.test.name }]}</span>
 				</h1>
 				<h1 class="text-center">Programming Language 
 				<br>
-				<span class="text-success">{[{ data[0].candidate.exam.language.name }]}</span></h1>
+				<span class="text-success">{[{ data[0].candidate.test.language.name }]}</span></h1>
 				<h2 class="text-center">Candidate Name  
 				<br>
 				<span class="text-primary">{[{ data[0].candidate.name }]}<span></h2>
 				<h3 class="text-center"> {[{ data[0].questions.name }]}</h3>
-				
-				<div ng-repeat="answer in data | orderBy:'order'">
+				<div ng-repeat="answer in data | orderBy:'question.order'">
 					<h2 class="question-title text-center" >
 						{[{ $index + 1 }]}. {[{ answer.question.question }]}
 					</h2>
@@ -38,7 +37,7 @@
 					  showGutter: true,
 					  theme:'twilight',
 					  onLoad : aceLoaded,
-					  mode: '{[{ data[0].candidate.exam.language.name | lowercase}]}'
+					  mode: '{[{ data[0].candidate.test.language.name | lowercase}]}'
 					}" ace-text text="{[{answer.answer}]}"></div>
 					<br>
 					<hr>

@@ -14,7 +14,7 @@ class Language(TimeStampedModel):
 
 
 # Create your models here.
-class Exam(TimeStampedModel):
+class Test(TimeStampedModel):
     language = models.ForeignKey(Language)
     name = models.CharField(max_length=55, unique=True, blank=False)
     slug = AutoSlugField(populate_from='name', unique=True, max_length=50)
@@ -26,7 +26,7 @@ class Exam(TimeStampedModel):
 
 # Create your models here.
 class Question(TimeStampedModel):
-    exam = models.ForeignKey(Exam)
+    test = models.ForeignKey(Test)
     question = models.CharField(max_length=255, blank=False)
     order = models.IntegerField()
 
@@ -36,7 +36,7 @@ class Question(TimeStampedModel):
 
 # Create your models here.
 class Candidate(TimeStampedModel):
-    exam = models.ForeignKey(Exam)
+    test = models.ForeignKey(Test)
     name = models.CharField(max_length=55, blank=False)
     slug = AutoSlugField(populate_from='name', unique=True, max_length=50)
 

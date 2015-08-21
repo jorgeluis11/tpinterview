@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from .models import Language
-from .models import Exam
+from .models import Test
 from .models import Question
 from .models import Candidate
 from .models import Answer
@@ -20,7 +20,7 @@ class LanguageAdmin(admin.ModelAdmin):
     search_fields = ['id', 'name']
 
 
-class ExamAdmin(admin.ModelAdmin):
+class TestAdmin(admin.ModelAdmin):
     fields = ('language', 'name', 'status')
     list_display = ('id', 'language', 'name',
                     'status')
@@ -31,19 +31,19 @@ class ExamAdmin(admin.ModelAdmin):
 
 
 class QuestionAdmin(admin.ModelAdmin):
-    fields = ('exam', 'question', 'order')
-    list_display = ('id',  'question', 'exam',
+    fields = ('test', 'question', 'order')
+    list_display = ('id',  'question', 'test',
                     'order')
-    list_display_links = ['id', 'question', 'exam']
-    list_filter = ['exam']
-    search_fields = ['id', 'question', 'exam']
+    list_display_links = ['id', 'question', 'test']
+    list_filter = ['test']
+    search_fields = ['id', 'question', 'test']
 
 
 class CandidateAdmin(admin.ModelAdmin):
-    fields = ('exam', 'name')
-    list_display = ('id', 'exam', 'name',)
-    list_display_links = ['id', 'exam', 'name']
-    list_filter = ['exam']
+    fields = ('test', 'name')
+    list_display = ('id', 'test', 'name',)
+    list_display_links = ['id', 'test', 'name']
+    list_filter = ['test']
     search_fields = ['id', 'name']
 
 
@@ -58,7 +58,7 @@ class AnswerAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Language, LanguageAdmin)
-admin.site.register(Exam, ExamAdmin)
+admin.site.register(Test, TestAdmin)
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Candidate, CandidateAdmin)
 admin.site.register(Answer, AnswerAdmin)
