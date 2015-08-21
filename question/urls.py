@@ -11,10 +11,12 @@ from .views import user_login
 from .views import insert_question
 from .views import testCandidatesTestRetrieve
 from .views import HelloPDFView
+from .views import user_login_redirect
+
 
 
 urlpatterns = patterns('',
-    url(r'^$', index.as_view(), name='language-list'),
+    url(r'^$', index, name='language-list'),
     url(r'^language/language_list.html/$', languages,
         name='language-list'),
     url(r'^language/language_detail.html/$', languagesDetail,
@@ -31,6 +33,7 @@ urlpatterns = patterns('',
         name='test-candidate-pdf'),
     (r'^login/$', 'django.contrib.auth.views.login',
         {'template_name': 'login.html'}),
+    (r'^redirect/$', user_login_redirect),
     (r'^login/validation$', user_login),
     (r'^insert$', insert_question),
 )
