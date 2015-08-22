@@ -1,21 +1,22 @@
-import reportlab
 import ast
+import reportlab
 
-from django.shortcuts import render_to_response
+from django.http import HttpResponse
 from django.shortcuts import HttpResponse
 from django.shortcuts import HttpResponseRedirect
-from django.http import HttpResponse
+from django.shortcuts import render_to_response
 
-from django.views.generic import TemplateView
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate
 from django.contrib.auth import login
+from django.contrib.auth import logout
+from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
+from django.views.generic import TemplateView
 
 from .models import Answer
 
-from reportlab.pdfgen import canvas
 from easy_pdf.views import PDFTemplateView
+from reportlab.pdfgen import canvas
 
 @login_required
 def index(request):
@@ -107,6 +108,9 @@ def user_login(request):
         # blank dictionary object...
         return render_to_response('login.html', {}, context)
 
+def user_logout(request):
+    logout(request)
+    return HttpResponseRedirect('/login')
 
 def insert_question(request):
     # Like before, obtain the context for the user's request.

@@ -255,6 +255,7 @@ button, label, th{
 
 .header-right > ul > li a{
     color: #222;
+    border-radius: 0px;
 }
 
 .header-right > ul > li > a > h3{
@@ -269,8 +270,8 @@ button, label, th{
     margin-bottom: 4px;
 }
 
-.header-right > ul > li > a:hover{
-    background-color: #404041;
+.header-right > ul > li > a:hover, .dropdown-toggle:focus{
+    background-color: #404041!important;
     color: white!important;
     -webkit-transition: .25s ease;
        -moz-transition: .25s  ease;
@@ -278,8 +279,10 @@ button, label, th{
          -o-transition: .25s  ease;
             transition: .25s  ease;
     text-decoration: none;
-    border-radius: 0px;
+}
 
+.header-right > ul > li > a:active{
+    background-color: #494949;
 }
 
 .logo-img{
@@ -589,4 +592,9 @@ button, label, th{
     border-color: #bf4343;
     color: #bf4343;
     box-shadow: none;
+}
+
+.user-dropdown a{
+    font-size: 19px;
+    padding: 20px 14px!important;
 }
